@@ -1,0 +1,1270 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Connecting Athens to Nature | Callie Clark</title>
+
+  <!-- Use your existing portfolio stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =====================================
+       GEORGIA MUSEUM PROJECT PAGE
+       Scoped to this page only
+    ===================================== */
+
+    .gmnh-page {
+      --gmnh-green: #a4b48f;
+      --gmnh-cream: #f4f1e9;
+      --gmnh-ink: #151515;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .gmnh-page img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .gmnh-intro {
+      padding: 105px 5% 85px;
+    }
+
+    .gmnh-eyebrow {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .gmnh-intro h1 {
+      max-width: 1400px;
+      font-size: clamp(58px, 9vw, 145px);
+      line-height: 0.96;
+      letter-spacing: -0.065em;
+      font-weight: 800;
+      margin-bottom: 50px;
+    }
+
+    .gmnh-subtitle {
+      max-width: 1050px;
+      font-size: clamp(25px, 3.5vw, 49px);
+      line-height: 1.18;
+      letter-spacing: -0.035em;
+      margin-bottom: 60px;
+    }
+
+    .gmnh-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 55px;
+    }
+
+    .gmnh-detail h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted, #777);
+      margin-bottom: 12px;
+    }
+
+    .gmnh-detail p {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .gmnh-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .gmnh-tags span {
+      border: 1px solid currentColor;
+      border-radius: 30px;
+      padding: 8px 15px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* HERO */
+
+    .gmnh-hero {
+      padding: 0 5%;
+    }
+
+    .gmnh-hero img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* EDITORIAL TEXT SECTIONS */
+
+    .gmnh-section {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 75px;
+      padding: 115px 7%;
+      align-items: start;
+    }
+
+    .gmnh-section-label {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .gmnh-section-content {
+      max-width: 920px;
+    }
+
+    .gmnh-section-content h2 {
+      font-size: clamp(35px, 4vw, 62px);
+      font-weight: 600;
+      letter-spacing: -0.045em;
+      line-height: 1.12;
+      margin-bottom: 35px;
+    }
+
+    .gmnh-section-content p {
+      font-size: 19px;
+      line-height: 1.75;
+      color: var(--muted, #777);
+      margin-bottom: 24px;
+    }
+
+    /* IMAGE GROUPS */
+
+    .gmnh-image-section {
+      padding: 0 5%;
+    }
+
+    .gmnh-image-section img {
+      width: 100%;
+      height: auto;
+    }
+
+    .gmnh-image-caption {
+      padding: 17px 0 0;
+      font-size: 13px;
+      color: var(--muted, #777);
+      letter-spacing: 0.3px;
+    }
+
+    .gmnh-image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      padding: 0 5%;
+      align-items: start;
+    }
+
+    .gmnh-image-grid img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .gmnh-image-grid figure {
+      min-width: 0;
+    }
+
+    .gmnh-image-grid figcaption {
+      padding-top: 15px;
+      font-size: 14px;
+      color: var(--muted, #777);
+    }
+
+    .gmnh-two-images {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      padding: 0 5%;
+      align-items: start;
+    }
+
+    .gmnh-two-images img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* SECTION DIVIDER */
+
+    .gmnh-feature {
+      background: var(--gmnh-cream);
+      color: var(--gmnh-ink);
+      padding: 115px 7%;
+      margin: 110px 0;
+      text-align: center;
+    }
+
+    .gmnh-feature p {
+      max-width: 1050px;
+      margin: 0 auto;
+      font-size: clamp(35px, 5vw, 72px);
+      line-height: 1.15;
+      letter-spacing: -0.045em;
+      font-weight: 600;
+    }
+
+    /* FINAL POSTERS */
+
+    .gmnh-final {
+      padding: 100px 5% 110px;
+    }
+
+    .gmnh-final-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .gmnh-final-heading h2 {
+      font-size: clamp(45px, 6vw, 90px);
+      letter-spacing: -0.06em;
+      line-height: 1;
+    }
+
+    .gmnh-final-heading p {
+      max-width: 340px;
+      font-size: 17px;
+      color: var(--muted, #777);
+    }
+
+    .gmnh-poster-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .gmnh-poster-grid img {
+      width: 100%;
+      height: auto;
+    }
+
+    .gmnh-poster-grid figcaption {
+      padding-top: 18px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    /* ENDING */
+
+    .gmnh-ending {
+      padding: 115px 5%;
+      text-align: center;
+    }
+
+    .gmnh-ending h2 {
+      font-size: clamp(42px, 6vw, 85px);
+      letter-spacing: -0.05em;
+      margin-bottom: 30px;
+    }
+
+    .gmnh-back {
+      display: inline-block;
+      border-bottom: 2px solid currentColor;
+      padding-bottom: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .gmnh-back:hover {
+      opacity: 0.55;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+
+      .gmnh-intro {
+        padding: 70px 5% 60px;
+      }
+
+      .gmnh-section {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 80px 5%;
+      }
+
+      .gmnh-section-content p {
+        font-size: 17px;
+      }
+
+      .gmnh-details {
+        gap: 30px;
+      }
+
+      .gmnh-feature {
+        padding: 80px 6%;
+        margin: 75px 0;
+      }
+
+      .gmnh-image-grid,
+      .gmnh-poster-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gmnh-final-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      .gmnh-intro h1 {
+        font-size: clamp(52px, 12vw, 80px);
+      }
+
+      .gmnh-image-grid,
+      .gmnh-poster-grid,
+      .gmnh-two-images {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .gmnh-final {
+        padding: 70px 5%;
+      }
+
+      .gmnh-ending {
+        padding: 80px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =====================================
+       WEBSITE HEADER
+  ===================================== -->
+
+  <header class="site-header">
+
+    <a href="index.html" class="logo">
+      <span>CALLIE CLARK</span>
+    </a>
+
+    <div class="header-right">
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="index.html#projects">Projects</a>
+      </nav>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <main class="gmnh-page">
+
+    <!-- =====================================
+         PROJECT INTRODUCTION
+    ===================================== -->
+
+    <section class="gmnh-intro">
+
+      <p class="gmnh-eyebrow">
+        Georgia Museum of Natural History
+      </p>
+
+      <h1>
+        Connecting Athens<br>
+        to Nature.
+      </h1>
+
+      <p class="gmnh-subtitle">
+        Translating natural history into a recognizable
+        visual identity through pictogram design,
+        illustration, and typography.
+      </p>
+
+      <div class="gmnh-details">
+
+        <div class="gmnh-detail">
+          <h3>Project</h3>
+          <p>Eye on Conservation</p>
+        </div>
+
+        <div class="gmnh-detail">
+          <h3>Organization</h3>
+          <p>Georgia Museum of Natural History</p>
+        </div>
+
+        <div class="gmnh-detail">
+          <h3>Disciplines</h3>
+
+          <div class="gmnh-tags">
+            <span>Visual Identity</span>
+            <span>Pictogram Design</span>
+            <span>Poster Design</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================
+         HERO IMAGE
+         Replace with your final poster image
+    ===================================== -->
+
+    <section class="gmnh-hero">
+      <img
+        src="bearcirclevector.png"
+        alt="Eye on Conservation poster series for the Georgia Museum of Natural History"
+      >
+
+      <img
+        src="birdcirclevector.png"
+        alt="Eye on Conservation poster series for the Georgia Museum of Natural History"
+      >
+
+      <img
+        src="foxcirclevector.png"
+        alt="Eye on Conservation poster series for the Georgia Museum of Natural History"
+      >
+    </section>
+
+
+
+
+<!-- =====================================
+     PROJECT OVERVIEW
+===================================== -->
+
+<section class="gmnh-section gmnh-overview">
+
+  <div class="gmnh-section-label">
+    01 / OVERVIEW
+  </div>
+
+  <div class="gmnh-section-content">
+
+    <h2>Recognizable by Design.</h2>
+
+    <p>
+      The Georgia Museum of Natural History combines
+      research, education, and public outreach through
+      collecting and documenting the natural and
+      cultural history of Georgia and beyond.
+      This class project translates the museum's artifacts
+      into a visual system built around recognizable
+      animals, creating interest before visitors
+      even arrive at the museum.
+    </p>
+
+    <p>
+      The challenge was to develop a cohesive set
+      of pictograms that could become the foundation
+      for an advertising poster series. Each symbol
+      needed to remain recognizable at both large
+      and small scales while preserving the
+      distinctive characteristics of its animal.
+    </p>
+
+    <!-- PROJECT PARTNER -->
+
+    <div class="gmnh-project-partner">
+
+      <span class="gmnh-partner-label">
+        CONCEPUTAL CLIENT 
+      </span>
+
+      <img
+        src="uganaturalhistorymuseum.png"
+        alt="Georgia Museum of Natural History"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+    <!-- =====================================
+         RESEARCH
+    ===================================== -->
+
+    <section class="gmnh-section">
+
+      <div class="gmnh-section-label">
+        02 / Research
+      </div>
+
+      <div class="gmnh-section-content">
+
+        <h2>
+          Collections Are Key.
+        </h2>
+
+        <p>
+          My research began by exploring the identity
+          and purpose of the Georgia Museum of Natural
+          History through its online records and
+          in-person exhibits.
+        </p>
+
+        <p>
+          The museum contains 14 natural-history
+          collections that support research, teaching,
+          public service, and community outreach.
+          Its mission to preserve Georgia's natural
+          and cultural heritage became a central
+          influence on the design direction.
+        </p>
+
+        <p>
+          The pictograms needed to feel connected
+          to the regional environment while remaining
+          accessible to audiences beyond the scientific
+          community.
+        </p>
+
+      </div>
+    </section>
+
+
+
+<!-- =====================================
+     MUSEUM RESEARCH IMAGE GALLERY
+===================================== -->
+
+<section class="gmnh-research-gallery">
+
+  <figure class="gmnh-research-item">
+
+    <img
+      src="ugahistory museum.jpg"
+      alt="Georgia Museum of Natural History research and exhibits"
+      loading="lazy"
+    >
+
+    <figcaption>
+      Research / Exploring the museum's collections
+      and visual identity
+    </figcaption>
+
+  </figure>
+
+  <figure class="gmnh-research-item">
+
+    <img
+      src="ugahistorymuseum2.jpg"
+      alt="Additional Georgia Museum of Natural History research"
+      loading="lazy"
+    >
+
+    <figcaption>
+      Research / Understanding the museum's
+      exhibits and natural history collections
+    </figcaption>
+
+  </figure>
+
+</section>
+
+
+    <!-- =====================================
+         ANIMAL SELECTION
+    ===================================== -->
+
+    <section class="gmnh-section">
+
+      <div class="gmnh-section-label">
+        03 / Exploration
+      </div>
+
+      <div class="gmnh-section-content">
+
+        <h2>
+          Finding the Right Forms.
+        </h2>
+
+        <p>
+          I began studying animals that could represent
+          the museum's collections and the natural
+          landscape of the surrounding region.
+          I selected a fox, bear, and ibis.
+          Their different proportions allowed each
+          animal to stand apart, while shared
+          construction methods and similar stances
+          helped create a cohesive visual language.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ANIMAL EXPLORATION IMAGES -->
+
+    <section class="gmnh-image-grid">
+
+      <figure>
+        <img
+          src="bearpencil.png"
+          alt="Fox pictogram development sketches"
+          loading="lazy"
+        >
+        <figcaption>01 / Bear</figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="birdpencil.png"
+          alt="Bear pictogram development sketches"
+          loading="lazy"
+        >
+        <figcaption>02 / Ibis</figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="foxpencil.png"
+          alt="Ibis pictogram development sketches"
+          loading="lazy"
+        >
+        <figcaption>03 / Fox</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- =====================================
+         SIMPLIFICATION
+    ===================================== -->
+
+  
+<!-- =====================================
+     04 / DEVELOPMENT
+===================================== -->
+
+
+<!-- =====================================
+     04 / DEVELOPMENT
+===================================== -->
+
+<section class="gmnh-section">
+
+  <div class="gmnh-section-label">
+    04 / Development
+  </div>
+
+  <div class="gmnh-section-content">
+
+    <h2>Detail to Reduction.</h2>
+
+    <p>
+      My initial sketches included detailed
+      claws, facial features, wing structures,
+      and fur textures. I then filled the
+      drawings entirely with black to evaluate
+      whether their silhouettes remained
+      recognizable without internal detail.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================
+     DEVELOPMENT IMAGE GALLERY
+===================================== -->
+
+
+<!-- =====================================
+     DEVELOPMENT IMAGE GALLERY
+===================================== -->
+
+<section class="gmnh-development">
+
+  <div class="gmnh-outline-gallery">
+
+    <!-- BEAR -->
+    <figure class="gmnh-outline-item">
+      <img
+        src="bearoutline.png"
+        alt="Bear pictogram outline development"
+        loading="lazy"
+      >
+      <figcaption>01 / Bear</figcaption>
+    </figure>
+
+    <!-- IBIS -->
+    <figure class="gmnh-outline-item">
+      <img
+        src="birdoutline.png"
+        alt="Ibis pictogram outline development"
+        loading="lazy"
+      >
+      <figcaption>02 / Ibis</figcaption>
+    </figure>
+
+    <!-- FOX -->
+    <figure class="gmnh-outline-item">
+      <img
+        src="foxoutline.png"
+        alt="Fox pictogram outline development"
+        loading="lazy"
+      >
+      <figcaption>03 / Fox</figcaption>
+    </figure>
+
+  </div>
+
+  <!-- DESCRIPTION -->
+
+  <div class="gmnh-development-text">
+
+    <p>
+      Through repeated simplification, I removed
+      unnecessary features while preserving
+      the visual elements that made each animal
+      distinct. This shifted the work from
+      illustration toward pictogram design.
+    </p>
+
+    <p>
+      Bold silhouettes, curved forms, and
+      negative space became the foundation
+      of the visual system.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+    <!-- =====================================
+         VISUAL SYSTEM
+    ===================================== -->
+
+    <section class="gmnh-section">
+
+      <div class="gmnh-section-label">
+        05 / Visual Language
+      </div>
+
+      <div class="gmnh-section-content">
+
+        <h2>
+          One System.
+        </h2>
+
+        <p>
+          Each pictogram uses a shared visual language
+          while communicating the individual
+          characteristics of each animal.
+          The fox expresses agility through its
+          upright posture and sweeping tail.
+          The ibis is defined by its long legs,
+          curved neck, and pointed beak.
+          The bear uses heavier, grounded forms
+          to communicate mass and strength.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- FINAL PICTOGRAMS -->
+
+    <section class="gmnh-image-grid">
+
+      <figure>
+        <img
+          src="bearvector.png"
+          alt="Final textured fox pictogram"
+          loading="lazy"
+        >
+        <figcaption>Bear / Strength</figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="birdvector.png"
+          alt="Final textured ibis pictogram"
+          loading="lazy"
+        >
+        <figcaption>Ibis / Grace</figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="foxvector.png"
+          alt="Final textured bear pictogram"
+          loading="lazy"
+        >
+        <figcaption>Fox / Agility</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- =====================================
+         FEATURED STATEMENT
+    ===================================== -->
+
+    <section class="gmnh-feature">
+
+      <p>
+        Successful pictograms are not about
+        drawing an animal with fewer details.
+        They are about discovering which details
+        tell the story.
+      </p>
+
+    </section>
+
+    <!-- =====================================
+         POSTER CONCEPT
+    ===================================== -->
+
+    <section class="gmnh-section">
+
+      <div class="gmnh-section-label">
+        06 / Poster Concept
+      </div>
+
+      <div class="gmnh-section-content">
+
+        <h2>
+          Eye on Conservation.
+        </h2>
+
+        <p>
+          The next challenge was translating
+          the pictograms into a poster series
+          centered around the theme
+          "Eye on Conservation."
+        </p>
+
+        <p>
+          Observation is essential to natural-history
+          research. Specimens are collected, examined,
+          documented, and studied to develop a
+          deeper understanding of the world.
+          I wanted the posters to communicate
+          that same sense of discovery.
+        </p>
+
+        <p>
+          Typography became an active element
+          of the composition rather than
+          simply supporting the illustrations.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- POSTER COMPOSITION SKETCHES -->
+
+   
+<!-- =========================================
+     POSTER COMPOSITION SKETCH GALLERY
+     PINTEREST-STYLE MASONRY LAYOUT
+========================================= -->
+
+<section class="gmnh-sketch-gallery">
+
+
+  <div class="gmnh-sketch-masonry">
+
+    <!-- SKETCH 01 -->
+    <figure class="gmnh-sketch-item">
+      <img
+        src="sketch1.png"
+        alt="Initial Eye on Conservation composition sketch 1"
+        loading="lazy"
+      >
+      <figcaption>01 / Composition Study</figcaption>
+    </figure>
+
+    <!-- SKETCH 02 -->
+    <figure class="gmnh-sketch-item">
+      <img
+        src="sketch2.png"
+        alt="Initial Eye on Conservation composition sketch 2"
+        loading="lazy"
+      >
+      <figcaption>02 / Composition Study</figcaption>
+    </figure>
+
+    <!-- SKETCH 03 -->
+    <figure class="gmnh-sketch-item">
+      <img
+        src="sketch3.png"
+        alt="Initial Eye on Conservation composition sketch 3"
+        loading="lazy"
+      >
+      <figcaption>03 / Composition Study</figcaption>
+    </figure>
+
+
+    <!-- SKETCH 04 -->
+    <figure class="gmnh-sketch-item">
+      <img
+        src="sketch8.png"
+        alt="Initial Eye on Conservation composition sketch 8"
+        loading="lazy"
+      >
+      <figcaption>04 / Composition Study</figcaption>
+    </figure>
+
+    <!-- SKETCH 05 -->
+    <figure class="gmnh-sketch-item">
+      <img
+        src="sketch9.png"
+        alt="Initial Eye on Conservation composition sketch 9"
+        loading="lazy"
+      >
+      <figcaption>05 / Composition Study</figcaption>
+    </figure>
+
+  </div>
+
+</section>
+
+
+    <!-- =====================================
+         TYPOGRAPHY AND COMPOSITION
+    ===================================== -->
+
+    <section class="gmnh-section">
+
+      <div class="gmnh-section-label">
+        07 / Composition
+      </div>
+
+      <div class="gmnh-section-content">
+
+        <h2>
+          Discovering Balance.
+        </h2>
+
+        <p>
+          I experimented with hierarchy through
+          oversized pictograms, smaller animal
+          figures, overlapping typography,
+          circular text, and large areas
+          of negative space.
+        </p>
+
+        <p>
+          These explorations helped establish
+          the relationship between the
+          illustration and the message,
+          allowing the typography to interact
+          directly with each animal.
+        </p>
+
+      </div>
+    </section>
+
+   <section class="gmnh-sketch-gallery">
+
+
+  <div class="gmnh-sketch-masonry">
+
+    <!-- SKETCH 01 -->
+    <figure class="gmnh-sketch-item">
+      <img
+        src="digitalsketchposter.png"
+        alt="Initial Eye on Conservation composition sketch 1"
+        loading="lazy"
+      >
+      <figcaption>01 / Type Meets Form</figcaption>
+    </figure>
+
+    <!-- SKETCH 02 -->
+    <figure class="gmnh-sketch-item">
+      <img
+        src="digitalsketchposter3.png"
+        alt="Initial Eye on Conservation composition sketch 2"
+        loading="lazy"
+      >
+      <figcaption>02 / Type Meets Form</figcaption>
+    </figure>
+
+    <!-- SKETCH 03 -->
+    <figure class="gmnh-sketch-item">
+      <img
+        src="ditigalsketchposter2.png"
+        alt="Initial Eye on Conservation composition sketch 3"
+        loading="lazy"
+      >
+      <figcaption>03 / Type Meets Form</figcaption>
+    </figure>
+
+
+    <!-- SKETCH 04 -->
+    <figure class="gmnh-sketch-item">
+      <img
+        src="digitalsketchposter4.png"
+        alt="Initial Eye on Conservation composition sketch 8"
+        loading="lazy"
+      >
+      <figcaption>04 / Type Meets Form</figcaption>
+    </figure>
+
+    <!-- SKETCH 05 -->
+    <figure class="gmnh-sketch-item">
+      <img
+        src="digitalsketchposter6.png"
+        alt="Initial Eye on Conservation composition sketch 9"
+        loading="lazy"
+      >
+      <figcaption>05 / Type Meets Form</figcaption>
+    </figure>
+
+  </div>
+
+</section>
+
+    <!-- =====================================
+         FINAL POSTERS
+    ===================================== -->
+
+    <section class="gmnh-final">
+
+      <div class="gmnh-final-heading">
+
+        <h2>
+          Built for<br>
+          Discovery.
+        </h2>
+
+        <p>
+          Three distinct animals.
+          One cohesive visual system.
+        </p>
+
+      </div>
+
+
+       <section class="gmnh-section">
+
+      <div class="gmnh-section-label">
+        08 / Outcome
+      </div>
+
+      <div class="gmnh-section-content">
+
+        <h2>
+          A Cohesive Visual Identity.
+        </h2>
+
+        <p>
+          The final posters combine typography,
+          texture, and color into a unified
+          visual system. Each composition follows
+          the same underlying design principles
+          while highlighting the distinctive
+          characteristics of the fox, ibis,
+          and bear.
+        </p>
+
+        <p>
+          Together, the posters communicate
+          the Georgia Museum of Natural History's
+          focus on research and community,
+          inviting viewers to discover more
+          about the natural world around them.
+        </p>
+
+      </div>
+    </section>
+
+      <div class="gmnh-poster-grid">
+
+        <figure>
+          <img
+            src="bearposter.png"
+            alt="Final Eye on Conservation fox poster"
+            loading="lazy"
+          >
+          <figcaption>01 / Bear</figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="birdposter.png"
+            alt="Final Eye on Conservation ibis poster"
+            loading="lazy"
+          >
+          <figcaption>02 / Ibis</figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="foxposter.png"
+            alt="Final Eye on Conservation bear poster"
+            loading="lazy"
+          >
+          <figcaption>03 / Fox</figcaption>
+        </figure>
+
+      </div>
+
+    </section>
+
+    <!-- =====================================
+         FINAL OUTCOME
+    ===================================== -->
+
+   
+
+    <!-- =====================================
+         REFINEMENT
+    ===================================== -->
+
+    <section class="gmnh-section">
+
+      <div class="gmnh-section-label">
+        09 / Refinement
+      </div>
+
+      <div class="gmnh-section-content">
+
+        <h2>
+          Refining the Details.
+        </h2>
+
+        <p>
+          Throughout the project, weekly critiques,
+          peer reviews, and test prints helped
+          refine the hierarchy, legibility,
+          composition, and consistency of the work.
+        </p>
+
+        <p>
+          I also gathered feedback from people
+          working in science to evaluate how
+          effectively the posters communicated
+          for an institution centered on
+          research and education.
+        </p>
+
+        <p>
+          Printing the posters at full scale
+          was particularly important because
+          it allowed me to evaluate the
+          relationships between typography,
+          texture, and image at their
+          intended viewing size.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- =====================================
+         REFLECTION
+    ===================================== -->
+
+    <section class="gmnh-section">
+
+      <div class="gmnh-section-label">
+        10 / Reflection
+      </div>
+
+      <div class="gmnh-section-content">
+
+        <h2>
+          The Art of Simplification.
+        </h2>
+
+        <p>
+          This project strengthened my understanding
+          of how to simplify complex visual subjects
+          without losing the characteristics
+          that make them recognizable.
+        </p>
+
+        <p>
+          It also taught me to prioritize broad
+          compositional decisions before refining
+          smaller details, while considering
+          multiple viewing distances and the
+          existing identity of an organization.
+        </p>
+
+        <p>
+          Ultimately, I developed a cohesive
+          visual language that made research,
+          collections, and natural history
+          more approachable for the audiences
+          the museum hopes to reach.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- =====================================
+         BACK TO PROJECTS
+    ===================================== -->
+
+    <section class="gmnh-ending">
+
+      <h2>
+        Explore More Projects.
+      </h2>
+
+      <a href="index.html" class="gmnh-back">
+        Back to Portfolio ↗
+      </a>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© Callie Clark</p>
+  </footer>
+
+  <script>
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen =
+          navLinks.classList.toggle("active");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+      });
+    }
+  </script>
+
+</body>
+</html>

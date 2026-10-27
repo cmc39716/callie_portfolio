@@ -1,0 +1,2813 @@
+
+/* =========================================
+   GLOBAL STYLES
+========================================= */
+
+:root {
+  --background: #ffffff;
+  --bg: #ffffff;
+  --text: #080808;
+  --muted: #777777;
+  --border: #dddddd;
+  --line: #dddddd;
+  --accent: #e51d2a;
+  --surface: #f3f3f3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+body.dark-mode {
+  --background: #111111;
+  --bg: #111111;
+  --text: #ffffff;
+  --muted: #aaaaaa;
+  --border: #444444;
+  --line: #444444;
+  --surface: #242424;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 24px 4%;
+  background: var(--background);
+  position: relative;
+  z-index: 100;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  white-space: nowrap;
+}
+
+.logo-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  font-size: 15px;
+  font-weight: 600;
+  transition: opacity 0.25s;
+}
+
+.nav-links a:hover {
+  opacity: 0.5;
+}
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+.theme-toggle {
+  width: 49px;
+  height: 26px;
+  padding: 3px;
+  border: 1px solid var(--text);
+  border-radius: 50px;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--text);
+  transition: transform 0.3s;
+}
+
+body.dark-mode .toggle-circle {
+  transform: translateX(22px);
+}
+
+/* =========================================
+   SEARCH AND MOBILE MENU
+========================================= */
+
+.search-button {
+  width: 25px;
+  height: 25px;
+  border: 0;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.search-button svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  width: 30px;
+  height: 25px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+}
+
+/* =========================================
+   HOMEPAGE PORTFOLIO GRID
+========================================= */
+
+.portfolio-section {
+  padding: 65px 3% 110px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.project-card {
+  display: block;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.project-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.project-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.04);
+}
+
+.project-overlay,
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.16);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.project-card:hover .project-overlay,
+.featured-image:hover .image-overlay {
+  opacity: 1;
+}
+
+.project-overlay span,
+.image-overlay span {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.project-info {
+  padding: 22px 0;
+}
+
+.project-info h2 {
+  font-size: clamp(22px, 2.5vw, 35px);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 14px;
+}
+
+.project-info p {
+  max-width: 480px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.project-tag {
+  display: inline-block;
+  padding: 8px 15px;
+  border: 1px solid var(--text);
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* =========================================
+   FEATURED PROJECTS
+========================================= */
+
+.featured-project {
+  width: 100%;
+  padding: 70px 3% 100px;
+}
+
+.featured-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 35px;
+  margin-bottom: 55px;
+}
+
+.featured-heading h2 {
+  font-size: clamp(32px, 3.3vw, 62px);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.featured-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.tag {
+  display: inline-block;
+  border: 1.5px solid var(--accent);
+  border-radius: 50px;
+  padding: 12px 19px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tag-black {
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.featured-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
+}
+
+.featured-image {
+  display: block;
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--surface);
+  text-decoration: none;
+}
+
+.featured-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.featured-image:hover img {
+  transform: scale(1.025);
+}
+
+/* FIVE GLORY GLORY IMAGES */
+
+.glory-project .featured-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: start;
+}
+
+.glory-project .featured-image {
+  width: 100%;
+}
+
+/* FOUR OCHS IMAGES */
+
+.ochs-featured-project .featured-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-content: center;
+  align-items: start;
+  gap: 25px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.ochs-featured-project .featured-image {
+  width: 100%;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+  padding: 45px 3%;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.site-footer p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* =========================================
+   OCHS PROJECT PAGE
+========================================= */
+
+.ochs-page {
+  width: 100%;
+  overflow: hidden;
+}
+
+.ochs-page img {
+  display: block;
+  max-width: 100%;
+}
+
+/* OCHS INTRODUCTION */
+
+.ochs-intro {
+  padding: 95px 4% 75px;
+}
+
+.ochs-eyebrow {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.ochs-intro h1 {
+  font-size: clamp(65px, 10vw, 160px);
+  font-weight: 800;
+  letter-spacing: -0.065em;
+  line-height: 0.95;
+  margin: 0 0 45px;
+}
+
+.ochs-subtitle {
+  max-width: 1050px;
+  font-size: clamp(28px, 4vw, 58px);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+  margin-bottom: 65px;
+}
+
+.ochs-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 70px;
+}
+
+.ochs-detail h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.ochs-detail p {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.ochs-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ochs-tags span {
+  padding: 9px 17px;
+  border: 1px solid currentColor;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================================
+   OCHS HERO
+   ORIGINAL SIZE - UNCHANGED
+========================================= */
+
+.ochs-hero {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  padding: 0 3%;
+  overflow: visible;
+}
+
+.ochs-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* =========================================
+   OCHS CASE STUDY
+========================================= */
+
+.ochs-story {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  padding: 130px 7%;
+}
+
+.ochs-story-label,
+.ochs-conclusion-label {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ochs-story-content h2 {
+  font-size: clamp(32px, 4vw, 64px);
+  font-weight: 600;
+  line-height: 1.13;
+  letter-spacing: -0.04em;
+  margin: 0 0 40px;
+}
+
+.ochs-story-content p {
+  max-width: 850px;
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0 0 25px;
+}
+
+/* OCHS CAPTIONS */
+
+.ochs-caption {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  padding: 75px 7% 105px;
+  align-items: start;
+}
+
+.ochs-caption-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+}
+
+.ochs-caption-content {
+  max-width: 850px;
+}
+
+.ochs-caption-content h3 {
+  font-size: clamp(25px, 3vw, 43px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  margin: 0 0 20px;
+}
+
+.ochs-caption-content p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* =========================================
+   OCHS PHOTOGRAPHY GALLERY
+========================================= */
+
+.ochs-gallery {
+  width: 100%;
+  padding: 0 3%;
+}
+
+.ochs-photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: var(--surface);
+}
+
+.ochs-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: filter 0.4s ease;
+}
+
+button.ochs-photo:hover img {
+  filter: brightness(0.85);
+}
+
+button.ochs-photo::after {
+  content: "VIEW PHOTO ↗";
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+button.ochs-photo:hover::after {
+  opacity: 1;
+}
+
+/* FULL-WIDTH PHOTOGRAPHS */
+
+.ochs-full {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  margin-bottom: 22px;
+}
+
+.ochs-full img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+/* TWO-COLUMN PHOTOGRAPHS */
+
+.ochs-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-bottom: 22px;
+  align-items: start;
+}
+
+.ochs-two .ochs-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+}
+
+.ochs-two .ochs-photo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* STAGGERED GALLERY */
+
+.ochs-staggered-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  height: clamp(550px, 65vw, 900px);
+  align-items: stretch;
+}
+
+.ochs-staggered-left {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  min-width: 0;
+  min-height: 0;
+}
+
+.ochs-staggered-left .ochs-photo,
+.ochs-staggered-right {
+  height: 100%;
+  min-height: 0;
+}
+
+.ochs-staggered-left img,
+.ochs-staggered-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* PHOTO / VIDEO / PHOTO */
+
+.ochs-three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-bottom: 22px;
+  align-items: stretch;
+}
+
+.ochs-three .ochs-photo {
+  aspect-ratio: 4 / 5;
+  min-width: 0;
+}
+
+.ochs-three .ochs-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ochs-video {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  cursor: default;
+}
+
+.ochs-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+.ochs-video::after {
+  display: none;
+}
+
+/* OCHS QUOTE */
+
+.ochs-quote {
+  padding: 130px 10%;
+  text-align: center;
+}
+
+.ochs-quote p {
+  max-width: 1100px;
+  margin: auto;
+  font-size: clamp(34px, 5vw, 75px);
+  line-height: 1.12;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+/* OCHS PINTEREST GALLERY */
+
+.ochs-pinterest {
+  padding: 0 3%;
+}
+
+.pinterest-grid {
+  columns: 3;
+  column-gap: 22px;
+}
+
+.pinterest-item {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 22px;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+
+.pinterest-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* OCHS CONCLUSION */
+
+.ochs-conclusion {
+  padding: 130px 7%;
+}
+
+.ochs-conclusion-inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+}
+
+.ochs-conclusion h2 {
+  font-size: clamp(36px, 5vw, 70px);
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+  font-weight: 600;
+  margin: 0 0 35px;
+}
+
+.ochs-conclusion p {
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 850px;
+  margin: 0 0 25px;
+}
+
+.ochs-ending {
+  padding: 120px 5%;
+  text-align: center;
+}
+
+.ochs-ending h2 {
+  font-size: clamp(45px, 7vw, 100px);
+  letter-spacing: -0.05em;
+  margin-bottom: 30px;
+}
+
+.ochs-back {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 8px;
+}
+
+.ochs-back:hover {
+  opacity: 0.5;
+}
+
+/* OCHS LIGHTBOX */
+
+.ochs-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+
+.ochs-lightbox.active {
+  display: flex;
+}
+
+.ochs-lightbox img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 95%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.ochs-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 45px;
+  cursor: pointer;
+}
+
+/* =========================================
+   GLORY GLORY PROJECT PAGE
+========================================= */
+
+/* PROJECT INTRO */
+
+.gg-intro {
+  padding: 100px 4% 90px;
+}
+
+.gg-eyebrow {
+  margin-bottom: 25px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.gg-intro h1 {
+  margin: 0 0 40px;
+  font-size: clamp(65px, 10vw, 160px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+}
+
+.gg-subtitle {
+  max-width: 1100px;
+  margin: 0 0 50px;
+  font-size: clamp(27px, 4vw, 56px);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+
+.gg-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.gg-tag {
+  padding: 10px 18px;
+  border: 1px solid var(--text);
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================================
+   GLORY GLORY HERO
+   SMALLER PHOTO - NO CROPPING
+   DOES NOT AFFECT OCHS
+========================================= */
+
+.gg-hero {
+  width: 100%;
+  min-height: calc(100vh - 85px);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.gg-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 85px);
+  object-fit: contain;
+  object-position: center;
+  margin: 0 auto;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .gg-hero {
+    min-height: calc(100vh - 70px);
+    padding: 0;
+  }
+
+  .gg-hero img {
+    width: 100%;
+    max-width: 100%;
+    max-height: calc(100vh - 70px);
+    object-fit: contain;
+  }
+}
+
+/* =========================================
+   GLORY GLORY STORY
+========================================= */
+
+.gg-story {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  padding: 120px 7%;
+}
+
+.gg-story-label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.gg-story-content h2 {
+  max-width: 900px;
+  margin: 0 0 35px;
+  font-size: clamp(35px, 4.5vw, 65px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+}
+
+.gg-story-content p {
+  max-width: 850px;
+  margin: 0 0 25px;
+  font-size: 19px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+/* =========================================
+   GLORY GLORY ARCHIVE
+========================================= */
+
+.gg-archive {
+  padding: 80px 4% 130px;
+}
+
+.gg-archive-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 35px;
+  margin-bottom: 45px;
+}
+
+.gg-archive-heading h2 {
+  margin: 0;
+  font-size: clamp(45px, 6vw, 90px);
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.gg-archive-heading p {
+  max-width: 360px;
+  margin: 0;
+  font-size: 17px;
+  color: var(--muted);
+}
+
+/* GAME COVER GRID */
+
+.gg-game-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 65px 28px;
+}
+
+.gg-game-card {
+  display: block;
+  min-width: 0;
+}
+
+.gg-game-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.gg-game-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
+.gg-game-card:hover .gg-game-image img {
+  transform: scale(1.04);
+}
+
+.gg-game-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 28px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.48),
+    transparent 55%
+  );
+  color: white;
+}
+
+.gg-game-overlay span {
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.3s;
+}
+
+.gg-game-card:hover .gg-game-overlay span {
+  transform: translateX(5px);
+}
+
+.gg-game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.gg-game-info h3 {
+  margin: 0;
+  font-size: clamp(24px, 2.5vw, 40px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+.gg-game-info p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.gg-game-count {
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* =========================================
+   INDIVIDUAL GAME PAGE
+========================================= */
+
+.gg-gallery-page {
+  padding: 65px 4% 130px;
+}
+
+.gg-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 60px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.gg-back-link:hover {
+  opacity: 0.55;
+}
+
+.gg-gallery-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 55px;
+}
+
+.gg-gallery-eyebrow {
+  margin: 0 0 15px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.gg-gallery-heading h1 {
+  margin: 0;
+  font-size: clamp(50px, 8vw, 115px);
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+}
+
+.gg-gallery-total {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* =========================================
+   PINTEREST / MASONRY GALLERY
+========================================= */
+
+.gg-masonry {
+  columns: 3;
+  column-gap: 22px;
+}
+
+.gg-photo {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0 0 22px;
+  border: 0;
+  background: var(--surface);
+  cursor: zoom-in;
+  overflow: hidden;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+
+.gg-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: filter 0.3s ease;
+}
+
+.gg-photo:hover img {
+  filter: brightness(0.75);
+}
+
+.gg-photo::after {
+  content: "VIEW PHOTO ↗";
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.gg-photo:hover::after {
+  opacity: 1;
+}
+
+/* =========================================
+   GLORY GLORY LIGHTBOX
+========================================= */
+
+.gg-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 65px;
+  background: rgba(0, 0, 0, 0.96);
+}
+
+.gg-lightbox.active {
+  display: flex;
+}
+
+.gg-lightbox img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 94vw;
+  max-height: 88vh;
+  object-fit: contain;
+}
+
+.gg-lightbox-close {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 46px;
+  cursor: pointer;
+}
+
+.gg-lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.gg-lightbox-prev {
+  left: 20px;
+}
+
+.gg-lightbox-next {
+  right: 20px;
+}
+
+.gg-lightbox-counter {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   GLORY GLORY GAME COLLECTIONS
+========================================= */
+
+.gg-collections {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 70px 40px 100px;
+  box-sizing: border-box;
+}
+
+.gg-collections-heading {
+  margin-bottom: 45px;
+}
+
+.gg-collections-heading h2 {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+
+.gg-collections-heading p {
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 650px;
+  margin: 0;
+}
+
+.gg-collections-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px 24px;
+  align-items: start;
+}
+
+.gg-collection-card {
+  display: block;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.gg-collection-card > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+  transition: transform 0.35s ease;
+}
+
+.gg-collection-card:hover > img {
+  transform: scale(1.02);
+}
+
+.gg-collection-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 16px;
+}
+
+.gg-collection-info h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 5px;
+}
+
+.gg-collection-info p {
+  font-size: 13px;
+  opacity: 0.65;
+  margin: 0;
+}
+
+.gg-collection-info span {
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.gg-collection-card:focus-visible {
+  outline: 3px solid #e32636;
+  outline-offset: 5px;
+}
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .featured-heading {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .featured-tags {
+    justify-content: flex-start;
+  }
+
+  .portfolio-grid {
+    gap: 20px;
+  }
+
+  .glory-project .featured-gallery {
+    gap: 12px;
+  }
+
+  .ochs-featured-project .featured-gallery {
+    gap: 16px;
+  }
+
+  .ochs-story,
+  .ochs-caption,
+  .ochs-conclusion-inner {
+    gap: 45px;
+  }
+}
+
+@media (max-width: 1000px) {
+
+  .gg-story {
+    gap: 40px;
+  }
+
+  .gg-masonry {
+    columns: 2;
+  }
+
+  .gg-game-grid {
+    gap: 45px 20px;
+  }
+
+  .gg-collections-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+
+  .site-header {
+    padding: 22px 5%;
+  }
+
+  .header-right {
+    gap: 18px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    padding: 28px 5%;
+    background: var(--background);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.07);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .featured-heading h2 {
+    font-size: clamp(32px, 6vw, 52px);
+  }
+
+  .glory-project .featured-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ochs-featured-project .featured-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ochs-intro {
+    padding: 65px 5%;
+  }
+
+  .ochs-story,
+  .ochs-caption,
+  .ochs-conclusion-inner {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .ochs-story {
+    padding: 80px 5%;
+  }
+
+  .ochs-caption {
+    padding: 60px 5% 80px;
+  }
+
+  .ochs-conclusion {
+    padding: 90px 5%;
+  }
+
+  .ochs-details {
+    gap: 30px;
+  }
+
+  .ochs-hero {
+    height: auto;
+    min-height: 0;
+  }
+
+  .ochs-two {
+    grid-template-columns: 1fr;
+  }
+
+  .ochs-three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ochs-full {
+    height: auto;
+    min-height: 0;
+  }
+
+  .ochs-staggered-gallery {
+    height: clamp(420px, 70vw, 700px);
+    gap: 16px;
+  }
+
+  .ochs-staggered-left {
+    gap: 16px;
+  }
+
+  .pinterest-grid {
+    columns: 2;
+    column-gap: 16px;
+  }
+
+  .pinterest-item {
+    margin-bottom: 16px;
+  }
+
+  .ochs-quote {
+    padding: 90px 6%;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .site-header {
+    padding: 20px 5%;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .gg-intro {
+    padding: 70px 5% 60px;
+  }
+
+  .gg-intro h1 {
+    font-size: clamp(60px, 14vw, 100px);
+  }
+
+  /* SMALL GLORY GLORY HERO ON MOBILE */
+
+  .gg-hero {
+    padding: 20px 5%;
+  }
+
+  .gg-hero img {
+    width: 85%;
+    max-width: 500px;
+    max-height: 45vh;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .gg-story {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 85px 5%;
+  }
+
+  .gg-story-content p {
+    font-size: 17px;
+  }
+
+  .gg-archive {
+    padding: 55px 5% 100px;
+  }
+
+  .gg-archive-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gg-game-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .gg-game-image {
+    aspect-ratio: 3 / 2;
+  }
+
+  .gg-gallery-page {
+    padding: 45px 5% 90px;
+  }
+
+  .gg-gallery-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .gg-masonry {
+    columns: 2;
+    column-gap: 12px;
+  }
+
+  .gg-photo {
+    margin-bottom: 12px;
+  }
+
+  .gg-lightbox {
+    padding: 15px;
+  }
+
+  .gg-lightbox-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+  }
+
+  .gg-lightbox-prev {
+    left: 8px;
+  }
+
+  .gg-lightbox-next {
+    right: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .gg-collections {
+    padding: 50px 20px 70px;
+  }
+
+  .gg-collections-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .gg-collection-info h3 {
+    font-size: 18px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 550px) {
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .logo-icon {
+    font-size: 23px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-project {
+    padding: 55px 5% 75px;
+  }
+
+  .featured-heading {
+    margin-bottom: 30px;
+  }
+
+  .featured-tags {
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 12px;
+    padding: 9px 13px;
+  }
+
+  .glory-project .featured-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ochs-featured-project .featured-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ochs-intro h1 {
+    font-size: clamp(55px, 13vw, 90px);
+  }
+
+  .ochs-details {
+    gap: 30px;
+  }
+
+  .ochs-gallery {
+    padding: 0 12px;
+  }
+
+  .ochs-two,
+  .ochs-three {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .ochs-full {
+    margin-bottom: 12px;
+  }
+
+  .ochs-staggered-gallery {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 14px;
+  }
+
+  .ochs-staggered-left {
+    grid-template-rows: auto auto;
+    height: auto;
+    gap: 14px;
+  }
+
+  .ochs-staggered-left .ochs-photo,
+  .ochs-staggered-right {
+    height: auto;
+  }
+
+  .ochs-staggered-left img,
+  .ochs-staggered-right img {
+    height: auto;
+    object-fit: contain;
+  }
+
+  .ochs-three {
+    grid-template-columns: 1fr;
+  }
+
+  .ochs-three .ochs-photo {
+    aspect-ratio: auto;
+  }
+
+  .ochs-three .ochs-photo img,
+  .ochs-video video {
+    height: auto;
+  }
+
+  .pinterest-grid {
+    columns: 1;
+    column-gap: 12px;
+  }
+
+  .pinterest-item {
+    margin-bottom: 12px;
+  }
+
+  .ochs-lightbox {
+    padding: 20px;
+  }
+
+  .ochs-quote {
+    padding: 95px 7%;
+  }
+
+  .ochs-ending {
+    padding: 85px 5%;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .gg-masonry {
+    columns: 1;
+  }
+
+  .gg-photo {
+    margin-bottom: 15px;
+  }
+
+  .gg-game-info h3 {
+    font-size: 28px;
+  }
+
+  .gg-tag {
+    font-size: 12px;
+    padding: 9px 13px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+
+
+
+
+/* =========================================
+   GEORGIA MUSEUM HERO
+   THREE ANIMALS - BALANCED SIZING
+========================================= */
+
+.gmnh-hero {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: 35px;
+  width: 100%;
+  padding: 40px 4%;
+  margin: 0;
+  overflow: visible;
+}
+
+.gmnh-hero img {
+  display: block;
+  width: 100%;
+  height: 70vh;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  margin: 0;
+}
+
+/* MAKE THE FOX LARGER */
+
+.gmnh-hero img:nth-child(3) {
+  transform: scale(1.18);
+  transform-origin: center;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .gmnh-hero {
+    gap: 25px;
+    padding: 30px 4%;
+  }
+
+  .gmnh-hero img {
+    height: 50vh;
+  }
+
+  .gmnh-hero img:nth-child(3) {
+    transform: scale(1.15);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gmnh-hero {
+    gap: 12px;
+    padding: 20px 3%;
+  }
+
+  .gmnh-hero img {
+    height: 30vh;
+  }
+
+  .gmnh-hero img:nth-child(3) {
+    transform: scale(1.12);
+  }
+}
+
+
+/* =========================================
+   GEORGIA MUSEUM IMAGE DIVIDER
+========================================= */
+
+.gmnh-divider {
+  width: 100%;
+  padding: 60px 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gmnh-divider img {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gmnh-divider {
+    padding: 40px 5%;
+  }
+
+  .gmnh-divider img {
+    max-width: 250px;
+    max-height: 130px;
+  }
+}
+
+
+
+/* =========================================
+   GEORGIA MUSEUM OVERVIEW
+   INTEGRATED PROJECT PARTNER
+========================================= */
+
+.gmnh-overview {
+  padding-bottom: 100px;
+}
+
+/* Keep the logo connected to the overview */
+
+.gmnh-project-partner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  width: 100%;
+  margin-top: 55px;
+  padding: 30px 0;
+
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+}
+
+/* Small editorial label */
+
+.gmnh-partner-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #777777;
+  white-space: nowrap;
+}
+
+/* Museum logo */
+
+.gmnh-project-partner img {
+  display: block;
+  width: auto;
+  max-width: 320px;
+  max-height: 85px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .gmnh-project-partner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    margin-top: 40px;
+    padding: 25px 0;
+  }
+
+  .gmnh-project-partner img {
+    max-width: 260px;
+    max-height: 75px;
+  }
+}
+
+
+
+/* =========================================
+   GEORGIA MUSEUM RESEARCH GALLERY
+   TWO IMAGES SIDE BY SIDE
+========================================= */
+
+.gmnh-research-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+
+  width: 85%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+  padding: 30px 0 70px;
+
+  align-items: start;
+}
+
+.gmnh-research-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+}
+
+.gmnh-research-item img {
+  display: block;
+  width: 100%;
+  height: 320px;
+
+  object-fit: contain;
+  object-position: center;
+
+  background: transparent;
+}
+
+.gmnh-research-item figcaption {
+  margin-top: 15px;
+
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted, #777777);
+
+  text-align: left;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .gmnh-research-gallery {
+    width: 90%;
+    gap: 20px;
+  }
+
+  .gmnh-research-item img {
+    height: 260px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gmnh-research-gallery {
+    grid-template-columns: 1fr;
+    width: 90%;
+    gap: 35px;
+    padding: 20px 0 50px;
+  }
+
+  .gmnh-research-item img {
+    height: auto;
+    max-height: 300px;
+  }
+}
+
+
+
+/* =========================================
+   GEORGIA MUSEUM SKETCH GALLERY
+   CENTERED AND BALANCED IMAGES
+========================================= */
+
+.gmnh-image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: 30px;
+
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 40px 5%;
+}
+
+.gmnh-image-grid figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+/* ALL THREE SKETCHES */
+
+.gmnh-image-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 550px;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* MAKE THE IBIS SMALLER */
+
+.gmnh-image-grid figure:nth-child(2) img {
+  max-height: 440px;
+}
+
+/* CAPTIONS */
+
+.gmnh-image-grid figcaption {
+  margin-top: 15px;
+  font-size: 14px;
+  color: var(--muted, #777777);
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .gmnh-image-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 30px 8%;
+  }
+
+  .gmnh-image-grid img {
+    max-height: 350px;
+  }
+
+  .gmnh-image-grid figure:nth-child(2) img {
+    max-height: 320px;
+  }
+}
+
+
+
+/* =========================================
+   GEORGIA MUSEUM OUTLINE GALLERY
+   THREE IMAGES SIDE BY SIDE
+========================================= */
+
+.gmnh-outline-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: 35px;
+
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 30px 5% 90px;
+}
+
+/* INDIVIDUAL IMAGE CONTAINERS */
+
+.gmnh-outline-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+/* ALL THREE IMAGES */
+
+.gmnh-outline-item img {
+  display: block;
+  width: 100%;
+  height: 400px;
+  max-width: 100%;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+/* IBIS - SLIGHTLY SMALLER */
+
+.gmnh-outline-item:nth-child(2) img {
+  height: 350px;
+}
+
+/* CAPTIONS */
+
+.gmnh-outline-item figcaption {
+  width: 100%;
+  margin-top: 15px;
+
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted, #777777);
+  text-align: left;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+  .gmnh-outline-gallery {
+    gap: 20px;
+    padding: 25px 4% 70px;
+  }
+
+  .gmnh-outline-item img {
+    height: 300px;
+  }
+
+  .gmnh-outline-item:nth-child(2) img {
+    height: 270px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .gmnh-outline-gallery {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 20px 8% 60px;
+  }
+
+  .gmnh-outline-item img {
+    height: 300px;
+  }
+
+  .gmnh-outline-item:nth-child(2) img {
+    height: 270px;
+  }
+}
+
+
+
+
+/* =========================================
+   GEORGIA MUSEUM SKETCH GALLERY
+   3 COLUMNS - 2 ROWS VISIBLE PER SCREEN
+========================================= */
+
+.gmnh-sketch-gallery {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 25px 4% 60px;
+}
+
+/* THREE SKETCHES PER ROW */
+
+.gmnh-sketch-masonry {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px 25px;
+  width: 100%;
+  column-count: unset;
+}
+
+/* INDIVIDUAL SKETCHES */
+
+.gmnh-sketch-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* SKETCH IMAGES */
+
+.gmnh-sketch-item img {
+  display: block;
+  width: 100%;
+  height: 30vh;
+  max-height: 280px;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center;
+  background: #f7f6f3;
+  transition: transform 0.3s ease;
+}
+
+/* HOVER EFFECT */
+
+.gmnh-sketch-item:hover img {
+  transform: scale(1.02);
+}
+
+/* CAPTIONS */
+
+.gmnh-sketch-item figcaption {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted, #777777);
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .gmnh-sketch-masonry {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .gmnh-sketch-item img {
+    height: 27vh;
+    max-height: 230px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gmnh-sketch-gallery {
+    padding: 20px 4% 50px;
+  }
+
+  .gmnh-sketch-masonry {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .gmnh-sketch-item img {
+    height: 25vh;
+    max-height: 200px;
+  }
+
+  .gmnh-sketch-item figcaption {
+    font-size: 11px;
+  }
+}
+
+
+
+/* =========================================
+   GEORGIA MUSEUM SKETCH GALLERY
+   CLEAN TWO-ROW LAYOUT - NO BOXES
+========================================= */
+
+.gmnh-sketch-gallery {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 35px 4% 90px;
+}
+
+/* FIVE SKETCHES PER ROW */
+
+.gmnh-sketch-masonry {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  column-count: unset;
+  column-gap: 35px;
+  row-gap: 45px;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+}
+
+/* INDIVIDUAL SKETCHES */
+
+.gmnh-sketch-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  break-inside: avoid;
+}
+
+/* IMAGES - NO BACKGROUND BOXES */
+
+.gmnh-sketch-item img {
+  display: block;
+  width: 100%;
+  height: 30vh;
+  max-height: 280px;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  transition: transform 0.3s ease;
+}
+
+/* SUBTLE HOVER */
+
+.gmnh-sketch-item:hover img {
+  transform: scale(1.03);
+}
+
+/* CAPTIONS */
+
+.gmnh-sketch-item figcaption {
+  width: 100%;
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted, #777777);
+  text-align: center;
+}
+
+/* CENTER THE LAST FOUR SKETCHES */
+
+.gmnh-sketch-item:nth-child(6) {
+  grid-column: 1;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .gmnh-sketch-masonry {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+  }
+
+  .gmnh-sketch-item img {
+    height: 27vh;
+    max-height: 250px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gmnh-sketch-gallery {
+    padding: 25px 5% 60px;
+  }
+
+  .gmnh-sketch-masonry {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    row-gap: 30px;
+  }
+
+  .gmnh-sketch-item img {
+    height: 25vh;
+    max-height: 220px;
+  }
+
+  .gmnh-sketch-item figcaption {
+    font-size: 11px;
+  }
+}
+
+
+
+/* =========================================
+   GEORGIA MUSEUM DEVELOPMENT SECTION
+========================================= */
+
+.gmnh-development {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 7% 100px;
+}
+
+/* =========================================
+   THREE ANIMAL OUTLINES
+========================================= */
+
+.gmnh-development .gmnh-outline-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  gap: 40px;
+
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* INDIVIDUAL ANIMAL */
+
+.gmnh-development .gmnh-outline-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* ANIMAL IMAGES */
+
+.gmnh-development .gmnh-outline-item img {
+  display: block;
+  width: 100%;
+  height: 350px;
+  max-width: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* MAKE IBIS SLIGHTLY SMALLER */
+
+.gmnh-development .gmnh-outline-item:nth-child(2) img {
+  height: 310px;
+}
+
+/* CAPTIONS */
+
+.gmnh-development .gmnh-outline-item figcaption {
+  width: 100%;
+  margin-top: 15px;
+
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted, #777777);
+  text-align: left;
+}
+
+/* =========================================
+   DESCRIPTION UNDER GALLERY
+========================================= */
+
+.gmnh-development-text {
+  width: 100%;
+  max-width: 850px;
+
+  margin: 75px 0 0 auto;
+  padding: 0;
+}
+
+.gmnh-development-text p {
+  font-size: 19px;
+  line-height: 1.75;
+  color: var(--muted, #777777);
+  margin: 0 0 24px;
+}
+
+.gmnh-development-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .gmnh-development {
+    padding: 20px 5% 80px;
+  }
+
+  .gmnh-development .gmnh-outline-gallery {
+    gap: 20px;
+  }
+
+  .gmnh-development .gmnh-outline-item img {
+    height: 270px;
+  }
+
+  .gmnh-development .gmnh-outline-item:nth-child(2) img {
+    height: 240px;
+  }
+
+  .gmnh-development-text {
+    margin-top: 55px;
+  }
+
+  .gmnh-development-text p {
+    font-size: 17px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .gmnh-development {
+    padding: 15px 5% 65px;
+  }
+
+  .gmnh-development .gmnh-outline-gallery {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .gmnh-development .gmnh-outline-item img {
+    height: 280px;
+  }
+
+  .gmnh-development .gmnh-outline-item:nth-child(2) img {
+    height: 250px;
+  }
+
+  .gmnh-development-text {
+    margin-top: 45px;
+  }
+
+  .gmnh-development-text p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}
+
+
+
+/* =========================================
+   GEORGIA MUSEUM HERO
+   FIX SPACING BETWEEN IBIS AND FOX
+========================================= */
+
+.gmnh-hero {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: 35px;
+  width: 100%;
+  padding: 40px 4%;
+  margin: 0;
+}
+
+/* MOVE IBIS SLIGHTLY LEFT */
+
+.gmnh-hero img:nth-child(2) {
+  position: relative;
+  left: -20px;
+}
+
+/* MOVE FOX SLIGHTLY RIGHT */
+
+.gmnh-hero img:nth-child(3) {
+  position: relative;
+  left: 35px;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .gmnh-hero img:nth-child(2) {
+    left: -10px;
+  }
+
+  .gmnh-hero img:nth-child(3) {
+    left: 15px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gmnh-hero {
+    gap: 12px;
+    padding: 20px 3%;
+  }
+
+  .gmnh-hero img:nth-child(2) {
+    left: -5px;
+  }
+
+  .gmnh-hero img:nth-child(3) {
+    left: 5px;
+  }
+}
+
+
+
+/* =========================================
+   GEORGIA MUSEUM HERO
+   SMALLER ANIMALS + EVEN SPACING
+========================================= */
+
+.gmnh-hero {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+
+  width: 100%;
+  gap: 55px;
+  padding: 50px 6%;
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+/* ALL THREE ANIMALS */
+
+.gmnh-hero img {
+  display: block;
+  width: 100%;
+  height: 60vh;
+  max-width: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  margin: 0;
+  padding: 0;
+}
+
+/* IBIS - CENTERED */
+
+.gmnh-hero img:nth-child(2) {
+  position: static;
+  left: auto;
+}
+
+/* FOX - SLIGHTLY LARGER TO BALANCE THE OTHERS */
+
+.gmnh-hero img:nth-child(3) {
+  position: static;
+  left: auto;
+  transform: scale(1.08);
+  transform-origin: center;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .gmnh-hero {
+    gap: 30px;
+    padding: 35px 5%;
+  }
+
+  .gmnh-hero img {
+    height: 45vh;
+  }
+
+  .gmnh-hero img:nth-child(3) {
+    transform: scale(1.05);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gmnh-hero {
+    gap: 12px;
+    padding: 25px 5%;
+  }
+
+  .gmnh-hero img {
+    height: 25vh;
+  }
+
+  .gmnh-hero img:nth-child(3) {
+    transform: scale(1.03);
+  }
+}
+
+
+
+/* =========================================
+   GEORGIA MUSEUM HERO
+   MAKE BEAR SMALLER
+========================================= */
+
+/* BEAR - REDUCE SIZE BY 15% */
+
+.gmnh-hero img:nth-child(1) {
+  transform: scale(0.85);
+  transform-origin: center;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .gmnh-hero img:nth-child(1) {
+    transform: scale(0.88);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gmnh-hero img:nth-child(1) {
+    transform: scale(0.90);
+  }
+}
