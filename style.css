@@ -2811,3 +2811,1192 @@ button.ochs-photo:hover::after {
     transform: scale(0.90);
   }
 }
+
+
+
+/* ==========================================
+   CONNECTING INDIVIDUAL MOMENTS
+   EDITORIAL PHOTO SEQUENCE
+========================================== */
+
+.gg-story-sequence {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 110px 6% 130px;
+  box-sizing: border-box;
+}
+
+/* INTRODUCTION */
+
+.gg-story-intro {
+  max-width: 850px;
+  margin-bottom: 100px;
+}
+
+.gg-story-eyebrow {
+  display: block;
+  margin-bottom: 25px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.gg-story-intro h2 {
+  margin: 0 0 30px;
+  font-size: clamp(36px, 5vw, 76px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.gg-story-intro p {
+  max-width: 720px;
+  font-size: 19px;
+  line-height: 1.8;
+  color: #777;
+}
+
+/* CHAPTERS */
+
+.gg-story-chapter {
+  margin-bottom: 110px;
+}
+
+.gg-story-chapter-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.gg-story-chapter-heading span {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* IMAGE RESET */
+
+.gg-story-photo {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.gg-story-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gg-story-photo:hover img {
+  transform: scale(1.035);
+}
+
+/* CHAPTER 01
+   ONE LARGE IMAGE + TWO SMALLER IMAGES */
+
+.gg-story-grid--opening {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  grid-template-rows: repeat(2, 270px);
+  gap: 14px;
+}
+
+.gg-story-grid--opening .gg-story-photo:first-child {
+  grid-row: span 2;
+}
+
+/* CHAPTER 02
+   STRONG CINEMATIC ACTION SEQUENCE */
+
+.gg-story-grid--action {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: 430px 320px;
+  gap: 14px;
+}
+
+.gg-story-grid--action .gg-story-photo:first-child {
+  grid-column: span 2;
+}
+
+/* CHAPTER 03
+   EMOTION AND QUIETER CLOSING MOMENTS */
+
+.gg-story-grid--closing {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: 350px 250px;
+  gap: 14px;
+}
+
+.gg-story-grid--closing .gg-story-photo:last-child {
+  grid-column: span 2;
+}
+
+/* ENDING STATEMENT */
+
+.gg-story-ending {
+  max-width: 750px;
+  margin: 100px 0 0 auto;
+  padding-top: 35px;
+  border-top: 1px solid #d8d8d8;
+}
+
+.gg-story-ending span {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: #777;
+}
+
+.gg-story-ending p {
+  margin-top: 22px;
+  font-size: clamp(23px, 3vw, 38px);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .gg-story-sequence {
+    padding: 80px 5%;
+  }
+
+  .gg-story-intro {
+    margin-bottom: 70px;
+  }
+
+  .gg-story-chapter {
+    margin-bottom: 75px;
+  }
+
+  .gg-story-grid--opening {
+    grid-template-rows: repeat(2, 210px);
+  }
+
+  .gg-story-grid--action {
+    grid-template-rows: 320px 250px;
+  }
+
+  .gg-story-grid--closing {
+    grid-template-rows: 280px 210px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gg-story-sequence {
+    padding: 60px 5%;
+  }
+
+  .gg-story-intro {
+    margin-bottom: 55px;
+  }
+
+  .gg-story-intro p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .gg-story-chapter {
+    margin-bottom: 60px;
+  }
+
+  .gg-story-chapter-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .gg-story-grid--opening,
+  .gg-story-grid--action,
+  .gg-story-grid--closing {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 12px;
+  }
+
+  .gg-story-grid .gg-story-photo {
+    grid-column: auto;
+    grid-row: auto;
+    height: 260px;
+  }
+
+  .gg-story-grid .gg-story-photo:first-child {
+    height: 340px;
+  }
+
+  .gg-story-ending {
+    margin-top: 60px;
+  }
+}
+
+
+
+/* ==========================================
+   CONNECTING INDIVIDUAL MOMENTS
+   SHOW ENTIRE PHOTOGRAPHS - NO CROPPING
+========================================== */
+
+/* REMOVE FIXED HEIGHTS FROM PHOTO GRIDS */
+
+.gg-story-grid--opening,
+.gg-story-grid--action,
+.gg-story-grid--closing {
+  grid-template-rows: auto;
+  align-items: start;
+}
+
+/* ALLOW PHOTOS TO KEEP NATURAL PROPORTIONS */
+
+.gg-story-grid .gg-story-photo {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+}
+
+/* SHOW THE ENTIRE IMAGE */
+
+.gg-story-grid .gg-story-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* REMOVE IMAGE ENLARGEMENT ON HOVER */
+
+.gg-story-grid .gg-story-photo:hover img {
+  transform: none;
+}
+
+/* OPENING SECTION */
+
+.gg-story-grid--opening {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+}
+
+.gg-story-grid--opening .gg-story-photo:first-child {
+  grid-row: span 2;
+}
+
+/* ACTION SECTION */
+
+.gg-story-grid--action {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.gg-story-grid--action .gg-story-photo:first-child {
+  grid-column: span 2;
+}
+
+/* CLOSING SECTION */
+
+.gg-story-grid--closing {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.gg-story-grid--closing .gg-story-photo:last-child {
+  grid-column: span 2;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gg-story-grid--opening,
+  .gg-story-grid--action,
+  .gg-story-grid--closing {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .gg-story-grid .gg-story-photo,
+  .gg-story-grid .gg-story-photo:first-child {
+    height: auto;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .gg-story-grid .gg-story-photo img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+
+
+/* ==========================================
+   CHAPTER 02 / THE MOMENT
+   TWO STACKED COLUMNS - NO CROPPING
+========================================== */
+
+.gg-action-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+  align-items: start;
+}
+
+/* EACH COLUMN STACKS ITS PHOTOS */
+
+.gg-action-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+/* PHOTO CONTAINERS */
+
+.gg-action-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+/* SHOW THE ENTIRE PHOTOGRAPH */
+
+.gg-action-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  transform: none;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .gg-action-layout,
+  .gg-action-column {
+    gap: 14px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gg-action-layout {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .gg-action-column {
+    gap: 18px;
+  }
+}
+
+
+
+/* ==========================================
+   CHAPTER 02 / THE MOMENT
+   FEATURED TOP + STACKED LEFT + RIGHT
+========================================== */
+
+.gg-moment-layout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* LARGE TOP PHOTO */
+
+.gg-moment-featured {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.gg-moment-featured img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* BOTTOM TWO-COLUMN LAYOUT */
+
+.gg-moment-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* LEFT STACKED PHOTOS */
+
+.gg-moment-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+/* RIGHT CELEBRATION PHOTO */
+
+.gg-moment-right {
+  min-width: 0;
+}
+
+/* ALL BOTTOM PHOTOS */
+
+.gg-moment-photo {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.gg-moment-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* NO CROPPING OR HOVER ZOOM */
+
+.gg-moment-layout img:hover {
+  transform: none;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .gg-moment-layout,
+  .gg-moment-bottom,
+  .gg-moment-left {
+    gap: 14px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gg-moment-layout {
+    gap: 18px;
+  }
+
+  .gg-moment-bottom {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .gg-moment-left {
+    gap: 18px;
+  }
+}
+
+
+
+/* ==========================================
+   GLORY GLORY
+   GRAPHIC DESIGN INTEGRATION
+========================================== */
+
+.gg-graphics-section {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 110px 6% 130px;
+  box-sizing: border-box;
+}
+
+/* SECTION INTRO */
+
+.gg-graphics-intro {
+  margin-bottom: 90px;
+}
+
+.gg-graphics-label {
+  display: block;
+  margin-bottom: 45px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted, #777);
+}
+
+.gg-graphics-heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.gg-graphics-heading h2 {
+  margin: 0;
+  font-size: clamp(40px, 5.5vw, 84px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.gg-graphics-description p {
+  margin: 0 0 25px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--muted, #777);
+}
+
+.gg-graphics-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* GRAPHIC SHOWCASE */
+
+.gg-graphics-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+}
+
+.gg-graphics-featured,
+.gg-graphics-item {
+  margin: 0;
+  min-width: 0;
+}
+
+.gg-graphics-featured img,
+.gg-graphics-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* TWO-COLUMN GRAPHIC LAYOUT */
+
+.gg-graphics-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+  align-items: start;
+}
+
+/* IMAGE CAPTIONS */
+
+.gg-graphics-featured figcaption,
+.gg-graphics-item figcaption {
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted, #777);
+}
+
+/* CREATIVE PROCESS */
+
+.gg-graphics-process {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 70px;
+  margin-top: 120px;
+  padding-top: 35px;
+  border-top: 1px solid var(--border, #ddd);
+}
+
+.gg-graphics-process-label {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted, #777);
+}
+
+.gg-graphics-process-content {
+  max-width: 800px;
+}
+
+.gg-graphics-process-content h3 {
+  margin: 0 0 35px;
+  font-size: clamp(30px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
+.gg-graphics-process-content p {
+  margin: 0 0 24px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--muted, #777);
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+  .gg-graphics-section {
+    padding: 85px 5% 100px;
+  }
+
+  .gg-graphics-heading {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .gg-graphics-showcase {
+    gap: 45px;
+  }
+
+  .gg-graphics-process {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 85px;
+  }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .gg-graphics-section {
+    padding: 65px 5% 80px;
+  }
+
+  .gg-graphics-intro {
+    margin-bottom: 55px;
+  }
+
+  .gg-graphics-label {
+    margin-bottom: 25px;
+  }
+
+  .gg-graphics-description p,
+  .gg-graphics-process-content p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .gg-graphics-showcase {
+    gap: 35px;
+  }
+
+  .gg-graphics-pair {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .gg-graphics-process {
+    margin-top: 65px;
+  }
+
+}
+
+
+
+/* ==========================================
+   GLORY GLORY GRAPHIC DESIGN
+   RESIZE FIRST FEATURED GRAPHIC
+========================================== */
+
+/* FIRST GRAPHIC CONTAINER */
+
+.gg-graphics-showcase > .gg-graphics-featured:first-child {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* FIRST GRAPHIC IMAGE */
+
+.gg-graphics-showcase > .gg-graphics-featured:first-child img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+
+  object-fit: contain;
+  object-position: center;
+
+  margin: 0 auto;
+}
+
+/* CAPTION */
+
+.gg-graphics-showcase > .gg-graphics-featured:first-child figcaption {
+  margin-top: 18px;
+  text-align: center;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .gg-graphics-showcase > .gg-graphics-featured:first-child {
+    max-width: 750px;
+  }
+
+  .gg-graphics-showcase > .gg-graphics-featured:first-child img {
+    max-height: 60vh;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gg-graphics-showcase > .gg-graphics-featured:first-child {
+    max-width: 100%;
+  }
+
+  .gg-graphics-showcase > .gg-graphics-featured:first-child img {
+    max-height: 55vh;
+  }
+}
+
+
+
+/* ==========================================
+   GLORY GLORY
+   THREE GRAPHICS IN ONE ROW
+========================================== */
+
+.gg-graphics-three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  align-items: start;
+  width: 100%;
+}
+
+/* INDIVIDUAL GRAPHIC */
+
+.gg-graphics-three .gg-graphics-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* SHOW THE ENTIRE GRAPHIC */
+
+.gg-graphics-three .gg-graphics-item img {
+  display: block;
+  width: 100%;
+  height: 350px;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* CAPTIONS */
+
+.gg-graphics-three .gg-graphics-item figcaption {
+  width: 100%;
+  margin-top: 18px;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--muted, #777);
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .gg-graphics-three {
+    gap: 18px;
+  }
+
+  .gg-graphics-three .gg-graphics-item img {
+    height: 270px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gg-graphics-three {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .gg-graphics-three .gg-graphics-item img {
+    height: auto;
+    max-height: 400px;
+  }
+}
+
+
+
+/* ==========================================
+   INDIVIDUAL GAME PHOTOGRAPHY PAGES
+========================================== */
+
+.gg-game-page {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 60px 5% 120px;
+  box-sizing: border-box;
+}
+
+/* BACK NAVIGATION */
+
+.gg-game-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 95px;
+}
+
+.gg-game-back {
+  color: inherit;
+  text-decoration: none;
+  font-size: 14px;
+  transition: opacity 0.2s ease;
+}
+
+.gg-game-back:hover {
+  opacity: 0.5;
+}
+
+.gg-game-category {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted, #777);
+}
+
+/* GAME INTRODUCTION */
+
+.gg-game-intro {
+  max-width: 1100px;
+  margin-bottom: 85px;
+}
+
+.gg-game-eyebrow {
+  margin-bottom: 25px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted, #777);
+}
+
+.gg-game-intro h1 {
+  margin: 0 0 35px;
+  font-size: clamp(48px, 7vw, 110px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+}
+
+.gg-game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 35px;
+  margin-bottom: 35px;
+  font-size: 13px;
+  color: var(--muted, #777);
+}
+
+.gg-game-description {
+  max-width: 660px;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--muted, #777);
+}
+
+/* ==========================================
+   PINTEREST-STYLE MASONRY GALLERY
+========================================== */
+
+.gg-game-gallery {
+  width: 100%;
+}
+
+.gg-game-masonry {
+  column-count: 3;
+  column-gap: 22px;
+  width: 100%;
+}
+
+/* INDIVIDUAL PHOTO */
+
+.gg-game-photo {
+  display: block;
+  width: 100%;
+  margin: 0 0 22px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: zoom-in;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  overflow: hidden;
+}
+
+.gg-game-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+/* SUBTLE HOVER EFFECT */
+
+.gg-game-photo:hover img {
+  transform: scale(1.025);
+}
+
+/* KEYBOARD FOCUS */
+
+.gg-game-photo:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+/* ==========================================
+   END OF COLLECTION
+========================================== */
+
+.gg-game-ending {
+  padding-top: 110px;
+  text-align: center;
+}
+
+.gg-game-ending-line {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 65px;
+  background: var(--border, #ddd);
+}
+
+.gg-game-ending > span {
+  display: block;
+  margin-bottom: 25px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--muted, #777);
+}
+
+.gg-game-ending h2 {
+  margin: 0 0 20px;
+  font-size: clamp(32px, 4vw, 60px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.gg-game-ending p {
+  margin-bottom: 35px;
+  color: var(--muted, #777);
+  font-size: 16px;
+}
+
+.gg-game-return {
+  display: inline-block;
+  padding-bottom: 8px;
+  border-bottom: 1px solid currentColor;
+  color: inherit;
+  text-decoration: none;
+  font-size: 14px;
+  transition: opacity 0.2s ease;
+}
+
+.gg-game-return:hover {
+  opacity: 0.5;
+}
+
+/* ==========================================
+   FULL-SCREEN LIGHTBOX
+========================================== */
+
+.gg-game-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.96);
+}
+
+.gg-game-lightbox.active {
+  display: flex;
+}
+
+.gg-game-lightbox img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 85vw;
+  max-height: 85vh;
+  object-fit: contain;
+  transform: none;
+}
+
+/* LIGHTBOX BUTTONS */
+
+.gg-lightbox-close,
+.gg-lightbox-prev,
+.gg-lightbox-next {
+  position: absolute;
+  z-index: 2;
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.gg-lightbox-close {
+  top: 20px;
+  right: 35px;
+  font-size: 40px;
+}
+
+.gg-lightbox-prev {
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+}
+
+.gg-lightbox-next {
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+}
+
+.gg-lightbox-counter {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+  .gg-game-page {
+    padding: 45px 4% 90px;
+  }
+
+  .gg-game-masonry {
+    column-count: 2;
+    column-gap: 16px;
+  }
+
+  .gg-game-photo {
+    margin-bottom: 16px;
+  }
+
+  .gg-game-navigation {
+    margin-bottom: 65px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  .gg-game-page {
+    padding: 30px 5% 70px;
+  }
+
+  .gg-game-navigation {
+    margin-bottom: 55px;
+  }
+
+  .gg-game-category {
+    display: none;
+  }
+
+  .gg-game-intro {
+    margin-bottom: 50px;
+  }
+
+  .gg-game-intro h1 {
+    font-size: 48px;
+  }
+
+  .gg-game-description {
+    font-size: 16px;
+  }
+
+  .gg-game-masonry {
+    column-count: 1;
+  }
+
+  .gg-game-photo {
+    margin-bottom: 18px;
+  }
+
+  .gg-game-ending {
+    padding-top: 65px;
+  }
+
+  .gg-game-lightbox img {
+    max-width: 90vw;
+    max-height: 75vh;
+  }
+
+  .gg-lightbox-prev {
+    left: 10px;
+    font-size: 26px;
+  }
+
+  .gg-lightbox-next {
+    right: 10px;
+    font-size: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gg-game-photo img,
+  .gg-game-back,
+  .gg-game-return {
+    transition: none;
+  }
+
+  .gg-game-photo:hover img {
+    transform: none;
+  }
+}
+
