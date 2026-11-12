@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Georgia vs. Auburn | Callie Clark</title>
+  <title>Game Day Photography | Callie Clark</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -14,7 +15,7 @@
 <body>
 
   <!-- =====================================
-       WEBSITE HEADER
+       HEADER
   ===================================== -->
 
   <header class="site-header">
@@ -61,30 +62,30 @@
   </header>
 
 
+  <!-- =====================================
+       MAIN PAGE
+  ===================================== -->
+
   <main class="gg-game-page">
 
-  
-<!-- =====================================
-     BACK TO COLLECTIONS
-===================================== -->
+    <!-- BACK TO COLLECTIONS -->
 
-<div class="gg-game-navigation">
+    <div class="gg-game-navigation">
 
-  <a href="work.html" class="gg-game-back">
-    <span aria-hidden="true">←</span>
-    Back to Collections
-  </a>
+      <a href="work.html" class="gg-game-back">
+        <span aria-hidden="true">←</span>
+        Back to Collections
+      </a>
 
-  <span class="gg-game-category">
-    GLORY GLORY / GAME DAY PHOTOGRAPHY
-  </span>
+      <span class="gg-game-category">
+        GLORY GLORY / GAME DAY PHOTOGRAPHY
+      </span>
 
-</div>
-
+    </div>
 
 
     <!-- =====================================
-         GAME INTRODUCTION
+         COLLECTION INTRODUCTION
     ===================================== -->
 
     <section class="gg-game-intro">
@@ -93,11 +94,11 @@
         GEORGIA FOOTBALL / PHOTO COLLECTION
       </div>
 
-      <h1>Georgia vs. Auburn.</h1>
+      <h1 id="galleryTitle"></h1>
 
       <div class="gg-game-meta">
 
-        <span>07 Photographs</span>
+        <span id="galleryCount"></span>
 
         <span>Game Day Collection</span>
 
@@ -105,127 +106,57 @@
 
       </div>
 
-      <p class="gg-game-description">
+      <p class="gg-game-description" id="galleryDescription">
         A collection of moments capturing the energy,
         emotion, and atmosphere surrounding Georgia
-        football. From the anticipation before kickoff
-        to the action on the field, each photograph
-        contributes to the larger story of game day.
+        athletics. Each photograph contributes to
+        the larger story of game day.
       </p>
 
     </section>
 
 
     <!-- =====================================
-         PINTEREST-STYLE PHOTO GALLERY
+         PINTEREST-STYLE GALLERY
     ===================================== -->
 
     <section
       class="gg-game-gallery"
-      aria-label="Georgia versus Auburn photography gallery"
+      aria-label="Georgia athletics photography gallery"
     >
 
-      <div class="gg-game-masonry">
-
-        <!-- PHOTO 01 -->
-
-        <button class="gg-game-photo" type="button">
-          <img
-            src="GGAUB1.jpg"
-            alt="Georgia football action photograph 1"
-            loading="lazy"
-          >
-        </button>
-
-        <!-- PHOTO 02 -->
-
-        <button class="gg-game-photo" type="button">
-          <img
-            src="GGAUB2.jpg"
-            alt="Georgia football action photograph 2"
-            loading="lazy"
-          >
-        </button>
-
-        <!-- PHOTO 03 -->
-
-        <button class="gg-game-photo" type="button">
-          <img
-            src="GGAUB3.jpg"
-            alt="Georgia football action photograph 3"
-            loading="lazy"
-          >
-        </button>
-
-        <!-- PHOTO 04 -->
-
-        <button class="gg-game-photo" type="button">
-          <img
-            src="GGAUB4.jpg"
-            alt="Georgia football action photograph 4"
-            loading="lazy"
-          >
-        </button>
-
-        <!-- PHOTO 05 -->
-
-        <button class="gg-game-photo" type="button">
-          <img
-            src="GGAUB5.jpg"
-            alt="Georgia football action photograph 5"
-            loading="lazy"
-          >
-        </button>
-
-        <!-- PHOTO 06 -->
-
-        <button class="gg-game-photo" type="button">
-          <img
-            src="GGAUB6.jpg"
-            alt="Georgia football action photograph 6"
-            loading="lazy"
-          >
-        </button>
-
-        <!-- PHOTO 07 -->
-
-        <button class="gg-game-photo" type="button">
-          <img
-            src="GGAUB7.jpg"
-            alt="Georgia football action photograph 7"
-            loading="lazy"
-          >
-        </button>
-
-      </div>
+      <div
+        class="gg-game-masonry"
+        id="galleryGrid"
+      ></div>
 
     </section>
 
 
-  
-<!-- =====================================
-     END OF COLLECTION
-===================================== -->
+    <!-- =====================================
+         END OF COLLECTION
+    ===================================== -->
 
-<section class="gg-game-ending">
+    <section class="gg-game-ending">
 
-  <div class="gg-game-ending-line"></div>
+      <div class="gg-game-ending-line"></div>
 
-  <span>END OF COLLECTION</span>
+      <span>END OF COLLECTION</span>
 
-  <h2>Every moment tells a story.</h2>
+      <h2>Every moment tells a story.</h2>
 
-  <p>
-    Explore more photographs from Georgia athletics.
-  </p>
+      <p>
+        Explore more photographs from Georgia athletics.
+      </p>
 
-  <a href="work.html" class="gg-game-return">
-    View All Collections
-    <span aria-hidden="true">↗</span>
-  </a>
+      <a href="work.html" class="gg-game-return">
+        View All Collections
+        <span aria-hidden="true">↗</span>
+      </a>
 
-</section>
+    </section>
 
+  </main>
 
 
   <!-- =====================================
@@ -268,10 +199,7 @@
       &#8592;
     </button>
 
-    <img
-      id="ggLightboxImage"
-      alt=""
-    >
+    <img id="ggLightboxImage" alt="">
 
     <button
       class="gg-lightbox-next"
@@ -282,9 +210,10 @@
       &#8594;
     </button>
 
-    <div class="gg-lightbox-counter" id="ggLightboxCounter">
-      01 / 07
-    </div>
+    <div
+      class="gg-lightbox-counter"
+      id="ggLightboxCounter"
+    ></div>
 
   </div>
 
@@ -295,50 +224,180 @@
 
   <script>
 
-    /* DARK MODE */
+    /* =====================================
+       COLLECTION DATA
+    ===================================== */
+
+    const collections = {
+
+      "GGBAMA.html": {
+        title: "Georgia vs. Alabama.",
+        prefix: "GGBAMA",
+        count: 16
+      },
+
+      "GGOU.html": {
+        title: "Georgia vs. Oklahoma.",
+        prefix: "GGOU",
+        count: 7
+      },
+
+      "GGpractice.html": {
+        title: "Behind the Scenes.",
+        prefix: "GGPRACTICE",
+        count: 7
+      },
+
+      "GGTS.html": {
+        title: "Georgia vs. TS.",
+        prefix: "GGTS",
+        count: 9
+      },
+
+      "GGVandy.html": {
+        title: "Georgia vs. Vanderbilt.",
+        prefix: "GGVANDY",
+        count: 21
+      },
+
+      "GGWKU.html": {
+        title: "Georgia vs. Western Kentucky.",
+        prefix: "GGWKU",
+        count: 25
+      }
+
+    };
+
+
+    /* =====================================
+       IDENTIFY CURRENT GALLERY
+    ===================================== */
+
+    const pageName = decodeURIComponent(
+      window.location.pathname.split("/").pop()
+    );
+
+    const gallery = collections[pageName];
+
+    const galleryGrid = document.getElementById("galleryGrid");
+    const galleryTitle = document.getElementById("galleryTitle");
+    const galleryCount = document.getElementById("galleryCount");
+
+    let photos = [];
+
+
+    if (gallery) {
+
+      document.title = gallery.title + " | Callie Clark";
+
+      galleryTitle.textContent = gallery.title;
+
+      galleryCount.textContent =
+        String(gallery.count).padStart(2, "0") +
+        " Photographs";
+
+
+      /* CREATE EACH PHOTO */
+
+      for (let i = 1; i <= gallery.count; i++) {
+
+        const button = document.createElement("button");
+
+        button.className = "gg-game-photo";
+        button.type = "button";
+
+        const img = document.createElement("img");
+
+        img.src = gallery.prefix + i + ".jpg";
+
+        img.alt =
+          gallery.title.replace(/\.$/, "") +
+          " photograph " + i;
+
+        img.loading = "lazy";
+
+        button.appendChild(img);
+
+        galleryGrid.appendChild(button);
+
+      }
+
+      photos = Array.from(
+        document.querySelectorAll(".gg-game-photo img")
+      );
+
+    } else {
+
+      galleryTitle.textContent = "Collection Not Found";
+
+      galleryCount.textContent = "";
+
+    }
+
+
+    /* =====================================
+       DARK MODE
+    ===================================== */
 
     const themeToggle = document.getElementById("themeToggle");
 
     themeToggle.addEventListener("click", () => {
-      const isDark = document.body.classList.toggle("dark-mode");
+
+      const isDark =
+        document.body.classList.toggle("dark-mode");
 
       themeToggle.setAttribute(
         "aria-pressed",
         String(isDark)
       );
+
     });
 
 
-    /* MOBILE NAVIGATION */
+    /* =====================================
+       MOBILE NAVIGATION
+    ===================================== */
 
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
 
     menuToggle.addEventListener("click", () => {
+
       const isOpen = navLinks.classList.toggle("active");
 
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
 
       menuToggle.setAttribute(
         "aria-label",
         isOpen ? "Close navigation" : "Open navigation"
       );
+
     });
 
     document.querySelectorAll(".nav-links a").forEach(link => {
+
       link.addEventListener("click", () => {
+
         navLinks.classList.remove("active");
+
         menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Open navigation");
+
+        menuToggle.setAttribute(
+          "aria-label",
+          "Open navigation"
+        );
+
       });
+
     });
 
 
-    /* PHOTO LIGHTBOX */
-
-    const photos = Array.from(
-      document.querySelectorAll(".gg-game-photo img")
-    );
+    /* =====================================
+       PHOTO LIGHTBOX
+    ===================================== */
 
     const lightbox = document.getElementById("ggGameLightbox");
     const lightboxImage = document.getElementById("ggLightboxImage");
@@ -350,7 +409,11 @@
     let currentPhoto = 0;
     let lastFocusedElement = null;
 
+
     function showPhoto(index) {
+
+      if (!photos.length) return;
+
       currentPhoto = (index + photos.length) % photos.length;
 
       const selected = photos[currentPhoto];
@@ -362,38 +425,52 @@
         String(currentPhoto + 1).padStart(2, "0") +
         " / " +
         String(photos.length).padStart(2, "0");
+
     }
 
+
     function openLightbox(index) {
+
       lastFocusedElement = document.activeElement;
 
       showPhoto(index);
 
       lightbox.classList.add("active");
+
       lightbox.setAttribute("aria-hidden", "false");
 
       document.body.style.overflow = "hidden";
 
       closeButton.focus();
+
     }
 
+
     function closeLightbox() {
+
       lightbox.classList.remove("active");
+
       lightbox.setAttribute("aria-hidden", "true");
 
       document.body.style.overflow = "";
+
       lightboxImage.removeAttribute("src");
 
       if (lastFocusedElement) {
         lastFocusedElement.focus();
       }
+
     }
 
+
     photos.forEach((photo, index) => {
+
       photo.parentElement.addEventListener("click", () => {
         openLightbox(index);
       });
+
     });
+
 
     closeButton.addEventListener("click", closeLightbox);
 
@@ -405,13 +482,18 @@
       showPhoto(currentPhoto + 1);
     });
 
+
     lightbox.addEventListener("click", event => {
+
       if (event.target === lightbox) {
         closeLightbox();
       }
+
     });
 
+
     document.addEventListener("keydown", event => {
+
       if (!lightbox.classList.contains("active")) return;
 
       if (event.key === "Escape") {
@@ -427,22 +509,35 @@
       }
 
       if (event.key === "Tab") {
+
         const controls = [
           closeButton,
           previousButton,
           nextButton
         ];
 
-        const focusedIndex = controls.indexOf(document.activeElement);
+        const focusedIndex =
+          controls.indexOf(document.activeElement);
 
         if (event.shiftKey && focusedIndex <= 0) {
+
           event.preventDefault();
+
           controls[controls.length - 1].focus();
-        } else if (!event.shiftKey && focusedIndex === controls.length - 1) {
+
+        } else if (
+          !event.shiftKey &&
+          focusedIndex === controls.length - 1
+        ) {
+
           event.preventDefault();
+
           controls[0].focus();
+
         }
+
       }
+
     });
 
   </script>

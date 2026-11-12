@@ -1,0 +1,1418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Missing in America | Callie Clark</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    /* =========================================
+       MISSING IN AMERICA CASE STUDY
+       All styles scoped to this page
+    ========================================= */
+
+    .mia-page {
+      --mia-ink: #111111;
+      --mia-muted: #777777;
+      --mia-blue: #a6b7c0;
+      --mia-red: #57292e;
+      --mia-light: #f4f4f4;
+
+      width: 100%;
+      background: #ffffff;
+      color: var(--mia-ink);
+      overflow: hidden;
+    }
+
+    .mia-page * {
+      box-sizing: border-box;
+    }
+
+    .mia-page img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* HEADER */
+
+    .mia-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      padding: 30px 4%;
+      background: #ffffff;
+    }
+
+    .mia-logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: #000000;
+    }
+
+    .mia-header .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .mia-header .nav-links a {
+      font-size: 15px;
+      font-weight: 600;
+      color: #000000;
+    }
+
+    .mia-header .nav-links a:hover {
+      opacity: 0.5;
+    }
+
+    /* INTRO */
+
+    .mia-intro {
+      padding: 105px 5% 90px;
+    }
+
+    .mia-eyebrow {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+    }
+
+    .mia-intro h1 {
+      font-size: clamp(65px, 10vw, 160px);
+      font-weight: 800;
+      line-height: 0.92;
+      letter-spacing: -0.075em;
+      margin: 0 0 50px;
+    }
+
+    .mia-subtitle {
+      max-width: 1100px;
+      font-size: clamp(26px, 3.5vw, 50px);
+      line-height: 1.18;
+      letter-spacing: -0.035em;
+      margin-bottom: 65px;
+    }
+
+    .mia-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 60px;
+    }
+
+    .mia-detail h3 {
+      font-size: 13px;
+      color: var(--mia-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .mia-detail p {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .mia-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .mia-tags span {
+      border: 1px solid currentColor;
+      border-radius: 30px;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* HERO */
+
+    .mia-hero {
+      padding: 0 5%;
+    }
+
+    .mia-hero img {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    /* EDITORIAL TEXT SECTIONS */
+
+    .mia-section {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      padding: 120px 7%;
+      align-items: start;
+    }
+
+    .mia-section-label {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .mia-section-content {
+      max-width: 900px;
+    }
+
+    .mia-section-content h2 {
+      font-size: clamp(35px, 4vw, 65px);
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: -0.045em;
+      margin: 0 0 35px;
+    }
+
+    .mia-section-content p {
+      font-size: 19px;
+      line-height: 1.75;
+      color: var(--mia-muted);
+      margin-bottom: 25px;
+    }
+
+    /* IMAGE GALLERIES */
+
+    .mia-gallery {
+      padding: 0 5%;
+    }
+
+    .mia-gallery img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .mia-gallery figcaption {
+      font-size: 14px;
+      color: var(--mia-muted);
+      padding-top: 15px;
+    }
+
+    .mia-two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .mia-three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .mia-four-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .mia-gallery figure {
+      margin: 0;
+      min-width: 0;
+    }
+
+    /* MASONRY SKETCH GALLERY */
+
+    .mia-masonry {
+      columns: 3;
+      column-gap: 24px;
+    }
+
+    .mia-masonry figure {
+      break-inside: avoid;
+      margin-bottom: 24px;
+    }
+
+    /* FEATURE STATEMENT */
+
+    .mia-feature {
+      background: var(--mia-light);
+      padding: 130px 8%;
+      margin: 110px 0;
+      text-align: center;
+    }
+
+    .mia-feature p {
+      max-width: 1100px;
+      margin: auto;
+      font-size: clamp(35px, 5vw, 75px);
+      font-weight: 600;
+      line-height: 1.14;
+      letter-spacing: -0.045em;
+    }
+
+    /* DESIGN GOALS */
+
+    .mia-goals {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      padding: 0 7% 110px;
+    }
+
+    .mia-goal {
+      border-top: 1px solid #cccccc;
+      padding-top: 25px;
+    }
+
+    .mia-goal span {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .mia-goal h3 {
+      font-size: clamp(24px, 2.5vw, 38px);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
+    }
+
+    .mia-goal p {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--mia-muted);
+    }
+
+    /* COLOR PALETTE */
+
+    .mia-colors {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      padding: 0 5%;
+    }
+
+    .mia-color {
+      min-height: 240px;
+      display: flex;
+      align-items: flex-end;
+      padding: 25px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .mia-color-blue {
+      background: #a6b7c0;
+      color: #111111;
+    }
+
+    .mia-color-red {
+      background: #57292e;
+      color: #ffffff;
+    }
+
+    .mia-color-black {
+      background: #111111;
+      color: #ffffff;
+    }
+
+    /* FINAL DESIGN */
+
+    .mia-final {
+      padding: 100px 5% 130px;
+    }
+
+    .mia-final-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      margin-bottom: 55px;
+    }
+
+    .mia-final-heading h2 {
+      font-size: clamp(50px, 7vw, 110px);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+    }
+
+    .mia-final-heading p {
+      max-width: 350px;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--mia-muted);
+    }
+
+    .mia-final-image {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* APPLICATIONS */
+
+    .mia-applications {
+      padding: 70px 5% 120px;
+    }
+
+    .mia-applications h2 {
+      font-size: clamp(45px, 6vw, 90px);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 50px;
+    }
+
+    /* ENDING */
+
+    .mia-ending {
+      padding: 120px 5%;
+      text-align: center;
+      background: var(--mia-light);
+    }
+
+    .mia-ending h2 {
+      font-size: clamp(45px, 7vw, 100px);
+      letter-spacing: -0.06em;
+      line-height: 1;
+      margin-bottom: 40px;
+    }
+
+    .mia-back {
+      display: inline-block;
+      font-size: 18px;
+      font-weight: 700;
+      border-bottom: 2px solid currentColor;
+      padding-bottom: 8px;
+      color: inherit;
+    }
+
+    .mia-back:hover {
+      opacity: 0.5;
+    }
+
+    .mia-footer {
+      padding: 35px 5%;
+      text-align: center;
+      font-size: 14px;
+      color: #777777;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+
+      .mia-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .mia-header .nav-links {
+        flex-wrap: wrap;
+        gap: 15px 25px;
+      }
+
+      .mia-intro {
+        padding: 75px 5%;
+      }
+
+      .mia-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 85px 5%;
+      }
+
+      .mia-section-content p {
+        font-size: 17px;
+      }
+
+      .mia-goals {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .mia-two-grid,
+      .mia-three-grid,
+      .mia-four-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .mia-masonry {
+        columns: 2;
+      }
+
+      .mia-feature {
+        padding: 90px 6%;
+        margin: 70px 0;
+      }
+
+      .mia-final-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .mia-colors {
+        grid-template-columns: 1fr;
+      }
+
+      .mia-color {
+        min-height: 150px;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      .mia-intro h1 {
+        font-size: clamp(52px, 12vw, 85px);
+      }
+
+      .mia-two-grid,
+      .mia-three-grid,
+      .mia-four-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mia-masonry {
+        columns: 1;
+      }
+
+      .mia-details {
+        gap: 30px;
+      }
+
+      .mia-final {
+        padding: 70px 5%;
+      }
+
+      .mia-ending {
+        padding: 90px 5%;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =====================================
+       NAVIGATION
+  ===================================== -->
+
+  <header class="mia-header">
+
+    <a href="index.html" class="mia-logo">
+      CALLIE CLARK
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </header>
+
+
+  <main class="mia-page">
+
+    <!-- =====================================
+         INTRODUCTION
+    ===================================== -->
+
+    <section class="mia-intro">
+
+      <p class="mia-eyebrow">
+        Podcast Identity Redesign
+      </p>
+
+      <h1>
+        Missing<br>
+        in America.
+      </h1>
+
+      <p class="mia-subtitle">
+        Reimagining a true crime podcast identity
+        through meaningful symbolism, stronger
+        typography, and a more investigative
+        visual language.
+      </p>
+
+      <div class="mia-details">
+
+        <div class="mia-detail">
+          <h3>Project</h3>
+          <p>Missing in America</p>
+        </div>
+
+        <div class="mia-detail">
+          <h3>Original Podcast</h3>
+          <p>Dateline NBC</p>
+        </div>
+
+        <div class="mia-detail">
+          <h3>Disciplines</h3>
+
+          <div class="mia-tags">
+            <span>Visual Identity</span>
+            <span>Typography</span>
+            <span>Podcast Artwork</span>
+            <span>Brand Redesign</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         HERO IMAGE
+    ===================================== -->
+
+    <section class="mia-hero">
+
+      <!-- Replace with your final artwork -->
+      <img
+        src="mia-final-cover.png"
+        alt="Missing in America redesigned podcast artwork"
+      >
+
+    </section>
+
+
+    <!-- =====================================
+         01 / OVERVIEW
+    ===================================== -->
+
+    <section class="mia-section">
+
+      <div class="mia-section-label">
+        01 / Overview
+      </div>
+
+      <div class="mia-section-content">
+
+        <h2>
+          Redesigning the Story.
+        </h2>
+
+        <p>
+          Missing in America is a true crime podcast
+          series connected to Dateline NBC that
+          investigates missing persons cases and
+          shares the stories of individuals and
+          families affected by their disappearances.
+        </p>
+
+        <p>
+          The podcast combines investigative
+          journalism with personal storytelling,
+          creating a serious and emotionally
+          engaging listening experience.
+        </p>
+
+        <p>
+          The goal of this project was to redesign
+          the existing podcast identity to better
+          reflect its subject matter while improving
+          legibility, hierarchy, and recognition
+          across different digital platforms.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         02 / ORIGINAL IDENTITY
+    ===================================== -->
+
+    <section class="mia-section">
+
+      <div class="mia-section-label">
+        02 / The Problem
+      </div>
+
+      <div class="mia-section-content">
+
+        <h2>
+          When the Message Gets Lost.
+        </h2>
+
+        <p>
+          The original identity relied on a
+          heavily centered composition, dark
+          photographic imagery, and textured
+          typography. These elements made the
+          artwork difficult to recognize and
+          interpret at smaller scales.
+        </p>
+
+        <p>
+          The background image was too dark
+          and blurred to communicate a clear
+          visual message. Rather than reflecting
+          investigative journalism, the imagery
+          suggested a fictional horror story
+          or supernatural mystery.
+        </p>
+
+        <p>
+          The typography also presented problems.
+          A textured letterform created a visual
+          gap in the word "Missing," while
+          similarly weighted typefaces weakened
+          the hierarchy between the podcast
+          title and supporting information.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ORIGINAL PODCAST ARTWORK -->
+
+    <section class="mia-gallery">
+
+      <figure>
+
+        <img
+          src="mia-original.png"
+          alt="Original Missing in America podcast artwork"
+          loading="lazy"
+        >
+
+        <figcaption>
+          Original Identity / Evaluating composition,
+          imagery, typography, and legibility
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+    <!-- =====================================
+         FEATURE STATEMENT
+    ===================================== -->
+
+    <section class="mia-feature">
+
+      <p>
+        The challenge was not simply to make
+        the podcast look different, but to
+        make its message clearer.
+      </p>
+
+    </section>
+
+
+    <!-- =====================================
+         03 / DESIGN GOALS
+    ===================================== -->
+
+    <section class="mia-section">
+
+      <div class="mia-section-label">
+        03 / Design Goals
+      </div>
+
+      <div class="mia-section-content">
+
+        <h2>
+          Clarity Through Design.
+        </h2>
+
+        <p>
+          The redesign needed to communicate
+          the serious, real-world nature of
+          the stories being told.
+        </p>
+
+        <p>
+          Rather than relying on dark,
+          ambiguous imagery, I wanted to
+          develop a recognizable visual symbol
+          that could communicate mystery,
+          investigation, and the search
+          for answers.
+        </p>
+
+        <p>
+          Typography, composition, and color
+          would work together to establish
+          a clearer hierarchy and create an
+          identity that remained legible
+          across a range of applications.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="mia-goals">
+
+      <div class="mia-goal">
+
+        <span>01 / LEGIBILITY</span>
+
+        <h3>Readable at Every Scale.</h3>
+
+        <p>
+          Develop typography and imagery that
+          remain recognizable on podcast covers,
+          mobile devices, and smaller screens.
+        </p>
+
+      </div>
+
+      <div class="mia-goal">
+
+        <span>02 / HIERARCHY</span>
+
+        <h3>A Clear Visual Structure.</h3>
+
+        <p>
+          Move beyond a fully centered layout
+          and create stronger relationships
+          between the title, symbol, and
+          supporting information.
+        </p>
+
+      </div>
+
+      <div class="mia-goal">
+
+        <span>03 / MEANING</span>
+
+        <h3>Purposeful Imagery.</h3>
+
+        <p>
+          Replace ambiguous imagery with
+          symbolism that connects more
+          directly to investigation,
+          discovery, and missing persons.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         04 / EXPLORATION
+    ===================================== -->
+
+    <section class="mia-section">
+
+      <div class="mia-section-label">
+        04 / Exploration
+      </div>
+
+      <div class="mia-section-content">
+
+        <h2>
+          Searching for Direction.
+        </h2>
+
+        <p>
+          I began the redesign by exploring
+          different approaches to the podcast
+          title, experimenting with letterforms,
+          composition, and visual symbols.
+        </p>
+
+        <p>
+          Early sketches focused on the
+          relationship between the words
+          "Missing" and "America," testing
+          different ways to create emphasis
+          while maintaining readability.
+        </p>
+
+        <p>
+          This stage allowed me to compare
+          a wide range of ideas before
+          committing to a final direction.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- INITIAL SKETCHES -->
+
+    <section class="mia-gallery">
+
+      <div class="mia-masonry">
+
+        <figure>
+          <img
+            src="mia-sketch1.png"
+            alt="Initial typography sketches"
+            loading="lazy"
+          >
+          <figcaption>
+            01 / Initial Wordmark Exploration
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="mia-sketch2.png"
+            alt="Additional wordmark sketches"
+            loading="lazy"
+          >
+          <figcaption>
+            02 / Letterform Development
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="mia-sketch3.png"
+            alt="Missing in America composition studies"
+            loading="lazy"
+          >
+          <figcaption>
+            03 / Composition Studies
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="mia-sketch4.png"
+            alt="Exploring typography and visual symbols"
+            loading="lazy"
+          >
+          <figcaption>
+            04 / Symbol Exploration
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         05 / TYPOGRAPHY
+    ===================================== -->
+
+    <section class="mia-section">
+
+      <div class="mia-section-label">
+        05 / Typography
+      </div>
+
+      <div class="mia-section-content">
+
+        <h2>
+          Building a Stronger Wordmark.
+        </h2>
+
+        <p>
+          Typography was one of the primary
+          weaknesses of the original identity.
+          The textured lettering reduced
+          legibility and created an unclear
+          visual hierarchy.
+        </p>
+
+        <p>
+          I explored different weights,
+          arrangements, and proportions
+          to develop a wordmark that felt
+          more direct and recognizable.
+        </p>
+
+        <p>
+          Simplifying the letterforms helped
+          the title communicate more clearly,
+          allowing the visual symbol to
+          carry the expressive qualities
+          of the identity.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- WORDMARK DEVELOPMENT -->
+
+    <section class="mia-gallery">
+
+      <div class="mia-two-grid">
+
+        <figure>
+          <img
+            src="mia-type-sketch.png"
+            alt="Hand-drawn typography exploration"
+            loading="lazy"
+          >
+          <figcaption>
+            01 / Hand-Drawn Typography
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="mia-type-digital.png"
+            alt="Digital wordmark development"
+            loading="lazy"
+          >
+          <figcaption>
+            02 / Digital Refinement
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         06 / SYMBOL DEVELOPMENT
+    ===================================== -->
+
+    <section class="mia-section">
+
+      <div class="mia-section-label">
+        06 / Visual Language
+      </div>
+
+      <div class="mia-section-content">
+
+        <h2>
+          A Symbol of the Search.
+        </h2>
+
+        <p>
+          The visual direction developed
+          around a key-inspired graphic,
+          using its recognizable form as
+          the foundation for the identity.
+        </p>
+
+        <p>
+          The key creates a visual connection
+          to mystery, discovery, and the
+          search for answers without relying
+          on literal photographs or
+          horror-inspired imagery.
+        </p>
+
+        <p>
+          Its bold silhouette allows the
+          symbol to remain recognizable
+          at different sizes, while the
+          distressed texture introduces
+          a sense of age, uncertainty,
+          and complexity.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- SYMBOL EXPLORATIONS -->
+
+    <section class="mia-gallery">
+
+      <div class="mia-three-grid">
+
+        <figure>
+          <img
+            src="mia-symbol1.png"
+            alt="First key symbol exploration"
+            loading="lazy"
+          >
+          <figcaption>
+            01 / Symbol Concept
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="mia-symbol2.png"
+            alt="Refined key symbol"
+            loading="lazy"
+          >
+          <figcaption>
+            02 / Form Development
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="mia-symbol3.png"
+            alt="Final textured symbol"
+            loading="lazy"
+          >
+          <figcaption>
+            03 / Final Symbol
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         07 / COLOR AND TEXTURE
+    ===================================== -->
+
+    <section class="mia-section">
+
+      <div class="mia-section-label">
+        07 / Color & Texture
+      </div>
+
+      <div class="mia-section-content">
+
+        <h2>
+          Creating the Atmosphere.
+        </h2>
+
+        <p>
+          The redesigned identity uses
+          a restrained palette of muted
+          blue-gray, deep burgundy, and
+          black to create a serious,
+          investigative atmosphere.
+        </p>
+
+        <p>
+          The blue-gray background provides
+          contrast with the darker symbol,
+          while the burgundy introduces
+          tension and visual emphasis.
+        </p>
+
+        <p>
+          Texture adds depth to the
+          composition without interfering
+          with the readability of the
+          podcast title.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- COLOR PALETTE -->
+
+    <section class="mia-colors">
+
+      <div class="mia-color mia-color-blue">
+        MUTED BLUE-GRAY
+      </div>
+
+      <div class="mia-color mia-color-red">
+        DEEP BURGUNDY
+      </div>
+
+      <div class="mia-color mia-color-black">
+        BLACK
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         08 / FINAL IDENTITY
+    ===================================== -->
+
+    <section class="mia-section">
+
+      <div class="mia-section-label">
+        08 / Final Identity
+      </div>
+
+      <div class="mia-section-content">
+
+        <h2>
+          A More Recognizable Identity.
+        </h2>
+
+        <p>
+          The final identity combines
+          a bold key-inspired symbol,
+          simplified typography, and
+          a restrained color palette.
+        </p>
+
+        <p>
+          The composition creates a stronger
+          relationship between image and
+          type while giving each element
+          a distinct role within the
+          visual hierarchy.
+        </p>
+
+        <p>
+          Rather than using an unclear
+          background photograph, the
+          redesigned artwork relies on
+          recognizable graphic forms
+          to establish its visual message.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- FINAL ARTWORK -->
+
+    <section class="mia-final">
+
+      <div class="mia-final-heading">
+
+        <h2>
+          The Final<br>
+          Design.
+        </h2>
+
+        <p>
+          A more focused visual identity
+          designed for recognition,
+          readability, and digital use.
+        </p>
+
+      </div>
+
+      <div class="mia-final-image">
+
+        <img
+          src="mia-final-cover.png"
+          alt="Final Missing in America podcast artwork"
+          loading="lazy"
+        >
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         09 / APPLICATIONS
+    ===================================== -->
+
+    <section class="mia-section">
+
+      <div class="mia-section-label">
+        09 / Applications
+      </div>
+
+      <div class="mia-section-content">
+
+        <h2>
+          Designed for Digital.
+        </h2>
+
+        <p>
+          Podcast artwork needs to work
+          across a wide range of digital
+          platforms, from large promotional
+          graphics to small thumbnails
+          within streaming applications.
+        </p>
+
+        <p>
+          I applied the redesigned identity
+          to mobile listening interfaces
+          and smartwatch mockups to
+          demonstrate how the artwork
+          translates across different
+          screen sizes.
+        </p>
+
+        <p>
+          These applications demonstrate
+          the importance of a recognizable
+          symbol, strong contrast, and
+          a clear typographic hierarchy.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- APPLICATION MOCKUPS -->
+
+    <section class="mia-applications">
+
+      <h2>
+        Across Platforms.
+      </h2>
+
+      <div class="mia-four-grid">
+
+        <figure>
+          <img
+            src="mia-phone1.png"
+            alt="Podcast streaming application mockup"
+            loading="lazy"
+          >
+          <figcaption>
+            01 / Podcast Interface
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="mia-phone2.png"
+            alt="Mobile podcast cover mockup"
+            loading="lazy"
+          >
+          <figcaption>
+            02 / Mobile Application
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="mia-phone3.png"
+            alt="Mobile listening interface"
+            loading="lazy"
+          >
+          <figcaption>
+            03 / Listening Experience
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="mia-watch.png"
+            alt="Smartwatch podcast artwork mockup"
+            loading="lazy"
+          >
+          <figcaption>
+            04 / Smartwatch
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         FEATURE STATEMENT
+    ===================================== -->
+
+    <section class="mia-feature">
+
+      <p>
+        A successful identity should
+        communicate the story before
+        the audience presses play.
+      </p>
+
+    </section>
+
+
+    <!-- =====================================
+         10 / REFLECTION
+    ===================================== -->
+
+    <section class="mia-section">
+
+      <div class="mia-section-label">
+        10 / Reflection
+      </div>
+
+      <div class="mia-section-content">
+
+        <h2>
+          Designing with Intention.
+        </h2>
+
+        <p>
+          This project challenged me to
+          think beyond the visual appearance
+          of an identity and consider how
+          design decisions influence the
+          way an audience understands
+          a subject.
+        </p>
+
+        <p>
+          By identifying the weaknesses
+          of the original podcast artwork,
+          I was able to focus the redesign
+          on hierarchy, legibility,
+          symbolism, and scalability.
+        </p>
+
+        <p>
+          The final direction moves away
+          from ambiguous photographic
+          imagery and toward a more
+          focused graphic system that
+          better reflects the investigative
+          nature of the podcast.
+        </p>
+
+        <p>
+          Ultimately, the project reinforced
+          the importance of creating visual
+          identities that are not only
+          engaging, but meaningful,
+          recognizable, and appropriate
+          for the stories they represent.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         BACK TO PORTFOLIO
+    ===================================== -->
+
+    <section class="mia-ending">
+
+      <h2>
+        Explore More Projects.
+      </h2>
+
+      <a href="work.html" class="mia-back">
+        Back to Portfolio ↗
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="mia-footer">
+    <p>© 2026 Callie Clark</p>
+  </footer>
+
+</body>
+</html>

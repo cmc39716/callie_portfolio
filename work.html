@@ -6,16 +6,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Through the Lens | Callie Clark</title>
+  <title>Photography | Callie Clark</title>
 
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    /* ONE CONTINUOUS PINTEREST BOARD */
+
+    .photo-board {
+      width: min(1500px, 94%);
+      margin: 0 auto;
+      padding: 55px 0 110px;
+      columns: 3;
+      column-gap: 20px;
+    }
+
+    .photo-board img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0 0 20px;
+      break-inside: avoid;
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+    }
+
+    .photo-board img:hover {
+      transform: scale(1.025);
+    }
+
+    /* FULL SCREEN LIGHTBOX */
+
+    .photo-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.96);
+      padding: 65px;
+    }
+
+    .photo-lightbox.active {
+      display: flex;
+    }
+
+    .photo-lightbox img {
+      max-width: 100%;
+      max-height: 85vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      border: none;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      font-size: 32px;
+      padding: 12px;
+    }
+
+    .lightbox-close {
+      top: 15px;
+      right: 25px;
+      font-size: 42px;
+    }
+
+    .lightbox-prev {
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-next {
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+    }
+
+    @media (max-width: 900px) {
+      .photo-board {
+        columns: 2;
+        column-gap: 15px;
+      }
+
+      .photo-board img {
+        margin-bottom: 15px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .photo-board {
+        columns: 1;
+        padding: 30px 0 70px;
+      }
+
+      .photo-lightbox {
+        padding: 60px 45px;
+      }
+
+      .lightbox-prev {
+        left: 2px;
+      }
+
+      .lightbox-next {
+        right: 2px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- =====================================
-       HEADER
-  ===================================== -->
+  <!-- WEBSITE NAVIGATION -->
 
   <header class="site-header">
 
@@ -25,8 +152,6 @@
     </a>
 
     <div class="header-right">
-
-      <!-- DARK MODE TOGGLE -->
 
       <button
         class="theme-toggle"
@@ -38,16 +163,12 @@
         <span class="toggle-circle"></span>
       </button>
 
-      <!-- NAVIGATION -->
-
-      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <nav class="nav-links" id="navLinks">
         <a href="work.html" aria-current="page">Work</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
       </nav>
-
-      <!-- MOBILE MENU -->
 
       <button
         class="menu-toggle"
@@ -63,326 +184,281 @@
       </button>
 
     </div>
-
   </header>
 
+  <!-- ALL PHOTOS IN ONE PINTEREST BOARD -->
+
+  <main class="photo-board" id="photoBoard">
+
+    <!-- AUBURN -->
+    <img src="GGAUB4.jpg" alt="Georgia vs Auburn photo 4" loading="lazy">
+    <img src="GGAUB6.jpg" alt="Georgia vs Auburn photo 6" loading="lazy">
+    <img src="GGAUB7.jpg" alt="Georgia vs Auburn photo 7" loading="lazy">
+
+    <!-- ALABAMA -->
+    <img src="GGBAMA1.jpg" alt="Georgia vs Alabama photo 1" loading="lazy">
+    <img src="GGBAMA2.jpg" alt="Georgia vs Alabama photo 2" loading="lazy">
+    <img src="GGBAMA4.jpg" alt="Georgia vs Alabama photo 4" loading="lazy">
+    <img src="GGBAMA6.jpg" alt="Georgia vs Alabama photo 6" loading="lazy">
+    <img src="GGBAMA7.jpg" alt="Georgia vs Alabama photo 7" loading="lazy">
+    <img src="GGBAMA8.jpg" alt="Georgia vs Alabama photo 8" loading="lazy">
+    <img src="GGBAMA9.jpg" alt="Georgia vs Alabama photo 9" loading="lazy">
+    <img src="GGBAMA10.jpg" alt="Georgia vs Alabama photo 10" loading="lazy">
+    <img src="GGBAMA11.jpg" alt="Georgia vs Alabama photo 11" loading="lazy">
+    <img src="GGBAMA12.jpg" alt="Georgia vs Alabama photo 12" loading="lazy">
+    <img src="GGBAMA13.jpg" alt="Georgia vs Alabama photo 13" loading="lazy">
+    <img src="GGBAMA14.jpg" alt="Georgia vs Alabama photo 14" loading="lazy">
+    <img src="GGBAMA15.jpg" alt="Georgia vs Alabama photo 15" loading="lazy">
+    <img src="GGBAMA16.jpg" alt="Georgia vs Alabama photo 16" loading="lazy">
+
+    <!-- OKLAHOMA -->
+    <img src="GGOU1.jpg" alt="Georgia vs Oklahoma photo 1" loading="lazy">
+    <img src="GGOU2.jpg" alt="Georgia vs Oklahoma photo 2" loading="lazy">
+    <img src="GGOU4.jpg" alt="Georgia vs Oklahoma photo 4" loading="lazy">
+    <img src="GGOU5.jpg" alt="Georgia vs Oklahoma photo 5" loading="lazy">
+    <img src="GGOU6.jpg" alt="Georgia vs Oklahoma photo 6" loading="lazy">
+    <img src="GGOU7.jpg" alt="Georgia vs Oklahoma photo 7" loading="lazy">
+
+    <!-- BEHIND THE SCENES -->
+    <img src="GGPRACTICE1.jpg" alt="Georgia football behind the scenes 1" loading="lazy">
+    <img src="GGPRACTICE2.jpg" alt="Georgia football behind the scenes 2" loading="lazy">
+    <img src="GGPRACTICE3.jpg" alt="Georgia football behind the scenes 3" loading="lazy">
+    <img src="GGPRACTICE4.jpg" alt="Georgia football behind the scenes 4" loading="lazy">
+    <img src="GGPRACTICE5.jpg" alt="Georgia football behind the scenes 5" loading="lazy">
+    <img src="GGPRACTICE6.jpg" alt="Georgia football behind the scenes 6" loading="lazy">
+
+    <!-- TS -->
+    <img src="GGTS1.jpg" alt="Georgia football TS photo 1" loading="lazy">
+    <img src="GGTS3.jpg" alt="Georgia football TS photo 3" loading="lazy">
+    <img src="GGTS4.jpg" alt="Georgia football TS photo 4" loading="lazy">
+    <img src="GGTS5.jpg" alt="Georgia football TS photo 5" loading="lazy">
+    <img src="GGTS7.jpg" alt="Georgia football TS photo 7" loading="lazy">
+    <img src="GGTS8.jpg" alt="Georgia football TS photo 8" loading="lazy">
+
+    <!-- VANDERBILT -->
+    <img src="GGVANDY1.jpg" alt="Georgia vs Vanderbilt photo 1" loading="lazy">
+    <img src="GGVANDY2.jpg" alt="Georgia vs Vanderbilt photo 2" loading="lazy">
+    <img src="GGVANDY3.jpg" alt="Georgia vs Vanderbilt photo 3" loading="lazy">
+    <img src="GGVANDY5.jpg" alt="Georgia vs Vanderbilt photo 5" loading="lazy">
+    <img src="GGVANDY6.jpg" alt="Georgia vs Vanderbilt photo 6" loading="lazy">
+    <img src="GGVANDY7.jpg" alt="Georgia vs Vanderbilt photo 7" loading="lazy">
+    <img src="GGVANDY8.jpg" alt="Georgia vs Vanderbilt photo 8" loading="lazy">
+    <img src="GGVANDY9.jpg" alt="Georgia vs Vanderbilt photo 9" loading="lazy">
+    <img src="GGVANDY10.jpg" alt="Georgia vs Vanderbilt photo 10" loading="lazy">
+    <img src="GGVANDY11.jpg" alt="Georgia vs Vanderbilt photo 11" loading="lazy">
+    <img src="GGVANDY12.jpg" alt="Georgia vs Vanderbilt photo 12" loading="lazy">
+    <img src="GGVANDY14.jpg" alt="Georgia vs Vanderbilt photo 14" loading="lazy">
+    <img src="GGVANDY18.jpg" alt="Georgia vs Vanderbilt photo 18" loading="lazy">
+    <img src="GGVANDY19.jpg" alt="Georgia vs Vanderbilt photo 19" loading="lazy">
+    <img src="GGVANDY20.jpg" alt="Georgia vs Vanderbilt photo 20" loading="lazy">
+    <img src="GGVANDY21.jpg" alt="Georgia vs Vanderbilt photo 21" loading="lazy">
+
+    <!-- WESTERN KENTUCKY -->
+    <img src="GGWKU1.jpg" alt="Georgia vs Western Kentucky photo 1" loading="lazy">
+    <img src="GGWKU3.jpg" alt="Georgia vs Western Kentucky photo 3" loading="lazy">
+    <img src="GGWKU5.jpg" alt="Georgia vs Western Kentucky photo 5" loading="lazy">
+    <img src="GGWKU6.jpg" alt="Georgia vs Western Kentucky photo 6" loading="lazy">
+    <img src="GGWKU7.jpg" alt="Georgia vs Western Kentucky photo 7" loading="lazy">
+    <img src="GGWKU8.jpg" alt="Georgia vs Western Kentucky photo 8" loading="lazy">
+    <img src="GGWKU11.jpg" alt="Georgia vs Western Kentucky photo 11" loading="lazy">
+    <img src="GGWKU12.jpg" alt="Georgia vs Western Kentucky photo 12" loading="lazy">
+    <img src="GGWKU13.jpg" alt="Georgia vs Western Kentucky photo 13" loading="lazy">
+    <img src="GGWKU14.jpg" alt="Georgia vs Western Kentucky photo 14" loading="lazy">
+    <img src="GGWKU16.jpg" alt="Georgia vs Western Kentucky photo 16" loading="lazy">
+    <img src="GGWKU18.jpg" alt="Georgia vs Western Kentucky photo 18" loading="lazy">
+    <img src="GGWKU22.jpg" alt="Georgia vs Western Kentucky photo 22" loading="lazy">
+    <img src="GGWKU24.jpg" alt="Georgia vs Western Kentucky photo 24" loading="lazy">
+    <img src="GGWKU25.jpg" alt="Georgia vs Western Kentucky photo 25" loading="lazy">
+
+
+<!-- SEC MEDIA DAY PHOTOGRAPHY -->
+
+  <img src="SECMEDIA1.jpg" alt="SEC Media Day photo 1" loading="lazy">
+  <img src="SECMEDIA2.jpg" alt="SEC Media Day photo 2" loading="lazy">
+  <img src="SECMEDIA3.jpg" alt="SEC Media Day photo 3" loading="lazy">
+  <img src="SECMEDIA6.jpg" alt="SEC Media Day photo 6" loading="lazy">
+  <img src="SECMEDIA8.jpg" alt="SEC Media Day photo 8" loading="lazy">
+  <img src="SECMEDIA10.jpg" alt="SEC Media Day photo 10" loading="lazy">
+  <img src="SECMEDIA12.jpg" alt="SEC Media Day photo 12" loading="lazy">
+  <img src="SECMEDIA13.jpg" alt="SEC Media Day photo 13" loading="lazy">
 
-  <!-- =====================================
-       MAIN CONTENT
-  ===================================== -->
-
-  <main id="main-content">
-
-    <!-- =====================================
-         GAME DAY PHOTOGRAPHY COLLECTIONS
-    ===================================== -->
-
-    <section
-      class="ochs-gallery gg-collections"
-      aria-labelledby="collections-title"
-    >
-
-      <!-- COLLECTION INTRODUCTION -->
-
-      <div class="gg-collections-heading">
-
-        <h2 id="collections-title">
-          Through the Lens.
-        </h2>
-
-        <p>
-          Explore Georgia athletics through individual
-          game-day galleries and behind-the-scenes coverage.
-          Select a collection to view the complete photo story.
-        </p>
-
-      </div>
-
-
-      <!-- =====================================
-           COLLECTION GRID
-      ===================================== -->
-
-      <div class="gg-collections-grid">
-
-
-        <!-- =====================================
-             01 / GEORGIA VS. AUBURN
-        ===================================== -->
-
-        <a
-          href="GGAuburn.html"
-          class="gg-collection-card"
-          aria-label="View Georgia vs. Auburn photography collection"
-        >
-
-          <img
-            src="GGAUB6.jpg"
-            alt="Georgia vs. Auburn football photography"
-            loading="lazy"
-          >
-
-          <div class="gg-collection-info">
-
-            <div>
-              <h3>Georgia vs. Auburn</h3>
-              <p>7 Photographs</p>
-            </div>
-
-            <span>Explore ↗</span>
-
-          </div>
-
-        </a>
-
-
-        <!-- =====================================
-             02 / GEORGIA VS. ALABAMA
-        ===================================== -->
-
-        <a
-          href="GGBAMA.html"
-          class="gg-collection-card"
-          aria-label="View Georgia vs. Alabama photography collection"
-        >
-
-          <img
-            src="GGBAMA16.jpg"
-            alt="Georgia vs. Alabama football photography"
-            loading="lazy"
-          >
-
-          <div class="gg-collection-info">
-
-            <div>
-              <h3>Georgia vs. Alabama</h3>
-              <p>16 Photographs</p>
-            </div>
-
-            <span>Explore ↗</span>
-
-          </div>
-
-        </a>
-
-
-        <!-- =====================================
-             03 / GEORGIA VS. OKLAHOMA
-        ===================================== -->
-
-        <a
-          href="GGOU.html"
-          class="gg-collection-card"
-          aria-label="View Georgia vs. Oklahoma photography collection"
-        >
-
-          <img
-            src="GGOU1.jpg"
-            alt="Georgia vs. Oklahoma football photography"
-            loading="lazy"
-          >
-
-          <div class="gg-collection-info">
-
-            <div>
-              <h3>Georgia vs. Oklahoma</h3>
-              <p>7 Photographs</p>
-            </div>
-
-            <span>Explore ↗</span>
-
-          </div>
-
-        </a>
-
-
-        <!-- =====================================
-             04 / BEHIND THE SCENES
-        ===================================== -->
-
-        <a
-          href="GGpractice.html"
-          class="gg-collection-card"
-          aria-label="View Georgia athletics behind-the-scenes photography collection"
-        >
-
-          <img
-            src="GGPRACTICE1.jpg"
-            alt="Georgia athletics practice photography"
-            loading="lazy"
-          >
-
-          <div class="gg-collection-info">
-
-            <div>
-              <h3>Behind the Scenes</h3>
-              <p>7 Photographs</p>
-            </div>
-
-            <span>Explore ↗</span>
-
-          </div>
-
-        </a>
-
-
-        <!-- =====================================
-             05 / GEORGIA VS. TS
-        ===================================== -->
-
-        <a
-          href="GGTS.html"
-          class="gg-collection-card"
-          aria-label="View Georgia vs. TS photography collection"
-        >
-
-          <img
-            src="GGTS1.jpg"
-            alt="Georgia vs. TS football photography"
-            loading="lazy"
-          >
-
-          <div class="gg-collection-info">
-
-            <div>
-              <h3>Georgia vs. TS</h3>
-              <p>9 Photographs</p>
-            </div>
-
-            <span>Explore ↗</span>
-
-          </div>
-
-        </a>
-
-
-        <!-- =====================================
-             06 / GEORGIA VS. VANDERBILT
-        ===================================== -->
-
-        <a
-          href="GGVandy.html"
-          class="gg-collection-card"
-          aria-label="View Georgia vs. Vanderbilt photography collection"
-        >
-
-          <img
-            src="GGVANDY14.jpg"
-            alt="Georgia vs. Vanderbilt football photography"
-            loading="lazy"
-          >
-
-          <div class="gg-collection-info">
-
-            <div>
-              <h3>Georgia vs. Vanderbilt</h3>
-              <p>22 Photographs</p>
-            </div>
-
-            <span>Explore ↗</span>
-
-          </div>
-
-        </a>
-
-
-        <!-- =====================================
-             07 / GEORGIA VS. WESTERN KENTUCKY
-        ===================================== -->
-
-        <a
-          href="GGWKU.html"
-          class="gg-collection-card"
-          aria-label="View Georgia vs. Western Kentucky photography collection"
-        >
-
-          <img
-            src="GGWKU5.jpg"
-            alt="Georgia vs. Western Kentucky football photography"
-            loading="lazy"
-          >
-
-          <div class="gg-collection-info">
-
-            <div>
-              <h3>Georgia vs. Western Kentucky</h3>
-              <p>25 Photographs</p>
-            </div>
-
-            <span>Explore ↗</span>
-
-          </div>
-
-        </a>
-
-
-      </div>
-
-    </section>
 
   </main>
 
+  <!-- FULL-SCREEN PHOTO VIEWER -->
 
-  <!-- =====================================
-       FOOTER
-  ===================================== -->
+  <div
+    class="photo-lightbox"
+    id="photoLightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Photograph viewer"
+    aria-hidden="true"
+  >
+    <button class="lightbox-close" id="lightboxClose"
+            type="button" aria-label="Close">&times;</button>
+
+    <button class="lightbox-prev" id="lightboxPrev"
+            type="button" aria-label="Previous photo">&#8592;</button>
+
+    <img id="lightboxImage" alt="">
+
+    <button class="lightbox-next" id="lightboxNext"
+            type="button" aria-label="Next photo">&#8594;</button>
+
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+
+  <!-- FOOTER -->
 
   <footer class="site-footer">
-
-    <p>
-      &copy; 2026 Callie Clark. All rights reserved.
-    </p>
-
+    <p>&copy; 2026 Callie Clark. All rights reserved.</p>
   </footer>
 
-
-  <!-- =====================================
-       JAVASCRIPT
-  ===================================== -->
-
   <script>
+    const photos = Array.from(
+      document.querySelectorAll("#photoBoard img")
+    );
 
-    /* =====================================
-       DARK MODE
-    ===================================== */
+    const lightbox = document.getElementById("photoLightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const closeButton = document.getElementById("lightboxClose");
+    const previousButton = document.getElementById("lightboxPrev");
+    const nextButton = document.getElementById("lightboxNext");
+    const counter = document.getElementById("lightboxCounter");
+
+    let currentIndex = 0;
+    let lastFocusedElement = null;
+
+    function showPhoto(index) {
+      currentIndex = (index + photos.length) % photos.length;
+
+      const photo = photos[currentIndex];
+
+      lightboxImage.src = photo.src;
+      lightboxImage.alt = photo.alt;
+
+      counter.textContent =
+        (currentIndex + 1) + " / " + photos.length;
+    }
+
+    function openLightbox(index) {
+      lastFocusedElement = document.activeElement;
+
+      showPhoto(index);
+
+      lightbox.classList.add("active");
+      lightbox.setAttribute("aria-hidden", "false");
+
+      document.body.style.overflow = "hidden";
+      closeButton.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      lightbox.setAttribute("aria-hidden", "true");
+
+      document.body.style.overflow = "";
+      lightboxImage.removeAttribute("src");
+
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+      }
+    }
+
+    photos.forEach((photo, index) => {
+      photo.tabIndex = 0;
+      photo.setAttribute("role", "button");
+
+      photo.addEventListener("click", () => {
+        openLightbox(index);
+      });
+
+      photo.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLightbox(index);
+        }
+      });
+    });
+
+    closeButton.addEventListener("click", closeLightbox);
+
+    previousButton.addEventListener("click", () => {
+      showPhoto(currentIndex - 1);
+    });
+
+    nextButton.addEventListener("click", () => {
+      showPhoto(currentIndex + 1);
+    });
+
+    lightbox.addEventListener("click", event => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (!lightbox.classList.contains("active")) return;
+
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+
+      if (event.key === "ArrowLeft") {
+        showPhoto(currentIndex - 1);
+      }
+
+      if (event.key === "ArrowRight") {
+        showPhoto(currentIndex + 1);
+      }
+
+      if (event.key === "Tab") {
+        const controls = [
+          closeButton,
+          previousButton,
+          nextButton
+        ];
+
+        const focusedIndex =
+          controls.indexOf(document.activeElement);
+
+        if (event.shiftKey && focusedIndex <= 0) {
+          event.preventDefault();
+          controls[controls.length - 1].focus();
+        } else if (
+          !event.shiftKey &&
+          focusedIndex === controls.length - 1
+        ) {
+          event.preventDefault();
+          controls[0].focus();
+        }
+      }
+    });
+
+    /* DARK MODE */
 
     const themeToggle = document.getElementById("themeToggle");
 
     if (themeToggle) {
-
-      function updateThemeButton() {
-        const isDark = document.body.classList.contains("dark-mode");
+      themeToggle.addEventListener("click", () => {
+        const isDark =
+          document.body.classList.toggle("dark-mode");
 
         themeToggle.setAttribute(
           "aria-pressed",
           String(isDark)
         );
-      }
-
-      themeToggle.addEventListener("click", () => {
-
-        document.body.classList.toggle("dark-mode");
-
-        updateThemeButton();
-
       });
-
-      updateThemeButton();
-
     }
 
-
-    /* =====================================
-       MOBILE NAVIGATION
-    ===================================== */
+    /* MOBILE MENU */
 
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
 
     if (menuToggle && navLinks) {
-
       menuToggle.addEventListener("click", () => {
-
         const isOpen = navLinks.classList.toggle("active");
 
         menuToggle.setAttribute(
@@ -394,36 +470,25 @@
           "aria-label",
           isOpen ? "Close navigation" : "Open navigation"
         );
-
       });
 
-
-      /* CLOSE MENU AFTER SELECTING A LINK */
-
       document.querySelectorAll(".nav-links a").forEach(link => {
-
         link.addEventListener("click", () => {
-
           navLinks.classList.remove("active");
 
-          menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
+          menuToggle.setAttribute("aria-expanded", "false");
           menuToggle.setAttribute(
             "aria-label",
             "Open navigation"
           );
-
         });
-
       });
-
     }
-
   </script>
 
 </body>
 </html>
+
+
+
 

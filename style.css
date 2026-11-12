@@ -307,21 +307,27 @@ body.dark-mode .toggle-circle {
   gap: 12px;
 }
 
+
+/* BLACK PROJECT BUTTONS */
+
 .tag {
   display: inline-block;
-  border: 1.5px solid var(--accent);
+  border: 1.5px solid #000000;
   border-radius: 50px;
   padding: 12px 19px;
-  color: var(--accent);
+  color: #000000;
   font-size: 14px;
   font-weight: 700;
   white-space: nowrap;
+  background: transparent;
+  transition: all 0.3s ease;
 }
 
-.tag-black {
-  border-color: var(--text);
-  color: var(--text);
+.tag:hover {
+  background: #000000;
+  color: #ffffff;
 }
+
 
 .featured-gallery {
   display: flex;
@@ -4000,3 +4006,710 @@ button.ochs-photo:hover::after {
   }
 }
 
+
+
+/* =====================================
+   GAME DAY PHOTOGRAPHY GRID
+===================================== */
+
+.gg-game-masonry {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+/* PHOTO CONTAINERS */
+
+.gg-game-photo {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  break-inside: auto;
+}
+
+/* PHOTOGRAPHS */
+
+.gg-game-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* HOVER EFFECT */
+
+.gg-game-photo:hover img {
+  transform: scale(1.03);
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .gg-game-masonry {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .gg-game-masonry {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+
+
+
+/* =========================================
+   ABOUT PAGE
+========================================= */
+
+.about-page {
+  width: 100%;
+  background: #ffffff;
+  color: #000000;
+  overflow: hidden;
+}
+
+/* HEADER */
+
+.about-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 4%;
+  background: #ffffff;
+}
+
+.about-logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #000000;
+}
+
+.about-home {
+  font-size: 13px;
+  font-weight: 700;
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 50px;
+  padding: 12px 22px;
+  transition: all 0.3s ease;
+}
+
+.about-home:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* INTRO */
+
+.about-intro {
+  padding: 100px 5% 85px;
+}
+
+.about-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.about-intro h1 {
+  font-size: clamp(70px, 11vw, 180px);
+  line-height: 0.88;
+  font-weight: 800;
+  letter-spacing: -0.075em;
+  margin: 0;
+}
+
+.about-period {
+  color: #000000;
+}
+
+/* IMAGE + BIO */
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7%;
+  align-items: start;
+  padding: 50px 5% 150px;
+}
+
+/* IMAGE */
+
+.about-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: #eeeeee;
+  overflow: hidden;
+}
+
+.about-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* BIOGRAPHY */
+
+.about-bio {
+  padding-top: 5px;
+}
+
+.about-lead {
+  font-size: clamp(27px, 3vw, 45px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+  margin-bottom: 45px;
+}
+
+.about-divider {
+  width: 100%;
+  height: 1px;
+  background: #cccccc;
+  margin-bottom: 45px;
+}
+
+.about-bio > p:not(.about-lead) {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555555;
+  margin-bottom: 28px;
+}
+
+/* ENDING */
+
+.about-ending {
+  padding: 130px 5%;
+  background: #f4f4f4;
+}
+
+.about-ending p {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 35px;
+}
+
+.about-ending h2 {
+  font-size: clamp(50px, 8vw, 130px);
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.065em;
+  margin-bottom: 55px;
+}
+
+.about-ending a {
+  display: inline-block;
+  border: 1.5px solid #000000;
+  border-radius: 50px;
+  padding: 15px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000000;
+  transition: all 0.3s ease;
+}
+
+.about-ending a:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+  .about-header {
+    padding: 25px 5%;
+  }
+
+  .about-intro {
+    padding: 80px 5% 55px;
+  }
+
+  .about-intro h1 {
+    font-size: clamp(55px, 12vw, 100px);
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    padding-bottom: 90px;
+  }
+
+  .about-image {
+    aspect-ratio: 4 / 5;
+  }
+
+  .about-lead {
+    font-size: 30px;
+  }
+
+  .about-bio > p:not(.about-lead) {
+    font-size: 16px;
+  }
+
+  .about-ending {
+    padding: 90px 5%;
+  }
+
+  .about-ending h2 {
+    font-size: clamp(45px, 10vw, 75px);
+  }
+
+}
+
+
+
+/* =========================================
+   CONTACT PAGE
+========================================= */
+
+.contact-page {
+  width: 100%;
+  background: #ffffff;
+  color: #000000;
+  overflow: hidden;
+}
+
+/* INTRO */
+
+.contact-intro {
+  padding: 110px 5% 120px;
+}
+
+.contact-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 35px;
+}
+
+.contact-intro h1 {
+  font-size: clamp(75px, 12vw, 190px);
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: -0.075em;
+  margin-bottom: 65px;
+}
+
+.contact-intro h1 span {
+  color: #000000;
+}
+
+.contact-description {
+  max-width: 650px;
+  font-size: clamp(22px, 2.5vw, 34px);
+  line-height: 1.35;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+/* CONTACT CONTENT */
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10%;
+  padding: 100px 5% 160px;
+  border-top: 1px solid #dddddd;
+}
+
+.contact-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 45px;
+}
+
+/* LEFT COLUMN */
+
+.contact-left h2 {
+  font-size: clamp(35px, 4.5vw, 70px);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+  font-weight: 700;
+  margin-bottom: 45px;
+}
+
+.contact-email {
+  display: inline-block;
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 600;
+  color: #000000;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 8px;
+  overflow-wrap: anywhere;
+  transition: opacity 0.3s;
+}
+
+.contact-email:hover {
+  opacity: 0.5;
+}
+
+/* SOCIAL LINKS */
+
+.contact-socials {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  margin-top: 100px;
+}
+
+.contact-socials p {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.contact-socials a {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  transition: opacity 0.3s;
+}
+
+.contact-socials a:hover {
+  opacity: 0.5;
+}
+
+/* CONTACT FORM */
+
+.contact-form {
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 35px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px 0;
+  border: none;
+  border-bottom: 1px solid #bbbbbb;
+  background: transparent;
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  border-radius: 0;
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom: 2px solid #000000;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999999;
+}
+
+/* SEND BUTTON */
+
+.contact-submit {
+  display: inline-block;
+  background: #000000;
+  color: #ffffff;
+  border: 1.5px solid #000000;
+  border-radius: 50px;
+  padding: 17px 32px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-submit:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* ENDING */
+
+.contact-ending {
+  padding: 140px 5%;
+  background: #f4f4f4;
+}
+
+.contact-ending p {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 45px;
+}
+
+.contact-ending h2 {
+  font-size: clamp(45px, 7.5vw, 125px);
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.065em;
+}
+
+/* FOOTER */
+
+.contact-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 5%;
+  background: #ffffff;
+  border-top: 1px solid #dddddd;
+}
+
+.contact-footer p,
+.contact-footer a {
+  font-size: 13px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.contact-footer a:hover {
+  opacity: 0.5;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+
+  .contact-intro {
+    padding: 80px 5% 90px;
+  }
+
+  .contact-intro h1 {
+    font-size: clamp(60px, 12vw, 110px);
+    margin-bottom: 45px;
+  }
+
+  .contact-description {
+    font-size: 22px;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 90px;
+    padding: 80px 5% 110px;
+  }
+
+  .contact-left h2 {
+    font-size: 45px;
+  }
+
+  .contact-socials {
+    margin-top: 60px;
+  }
+
+  .contact-ending {
+    padding: 100px 5%;
+  }
+
+  .contact-ending h2 {
+    font-size: clamp(45px, 9vw, 80px);
+  }
+
+  .contact-footer {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+}
+
+
+
+/* =========================================
+   SIMPLE CONTACT PAGE
+========================================= */
+
+.simple-contact-page {
+  width: 100%;
+  min-height: 80vh;
+  background: #ffffff;
+  color: #000000;
+}
+
+/* INTRO */
+
+.simple-contact-intro {
+  padding: 110px 5% 100px;
+}
+
+.simple-contact-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 35px;
+}
+
+.simple-contact-intro h1 {
+  font-size: clamp(70px, 12vw, 180px);
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+  font-weight: 800;
+  margin: 0 0 60px;
+}
+
+.simple-contact-description {
+  max-width: 650px;
+  font-size: clamp(21px, 2.5vw, 32px);
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+}
+
+/* LINKS */
+
+.simple-contact-links {
+  padding: 0 5% 150px;
+}
+
+.simple-contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 55px 0;
+  border-top: 1px solid #cccccc;
+  color: #000000;
+  text-decoration: none;
+  transition: padding 0.3s ease;
+}
+
+.simple-contact-link:last-child {
+  border-bottom: 1px solid #cccccc;
+}
+
+.simple-contact-link:hover {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.simple-contact-link-info span {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.simple-contact-link-info h2 {
+  font-size: clamp(40px, 6vw, 90px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  margin: 0 0 18px;
+}
+
+.simple-contact-link-info p {
+  font-size: 17px;
+  color: #777777;
+  line-height: 1.5;
+}
+
+.simple-contact-arrow {
+  font-size: clamp(40px, 5vw, 75px);
+  font-weight: 400;
+  transition: transform 0.3s ease;
+}
+
+.simple-contact-link:hover .simple-contact-arrow {
+  transform: translate(8px, -8px);
+}
+
+/* FOOTER */
+
+.simple-contact-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 35px 5%;
+  border-top: 1px solid #dddddd;
+}
+
+.simple-contact-footer p,
+.simple-contact-footer a {
+  font-size: 13px;
+  font-weight: 700;
+  color: #000000;
+  text-decoration: none;
+}
+
+.simple-contact-footer a:hover {
+  opacity: 0.5;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+  .simple-contact-intro {
+    padding: 80px 5% 75px;
+  }
+
+  .simple-contact-intro h1 {
+    font-size: clamp(55px, 12vw, 100px);
+    margin-bottom: 45px;
+  }
+
+  .simple-contact-description {
+    font-size: 20px;
+  }
+
+  .simple-contact-links {
+    padding-bottom: 100px;
+  }
+
+  .simple-contact-link {
+    padding: 40px 0;
+  }
+
+  .simple-contact-link-info h2 {
+    font-size: 45px;
+  }
+
+  .simple-contact-link-info p {
+    font-size: 15px;
+  }
+
+  .simple-contact-arrow {
+    font-size: 40px;
+  }
+
+  .simple-contact-footer {
+    flex-wrap: wrap;
+  }
+
+}
